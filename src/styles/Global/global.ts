@@ -2,27 +2,6 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
-:root{
-  // Primary Pallete
-  --color-primary:      #F0386B;
-  --color-primary-soft: #FF5376;
-  --color-secundary:    #6B2D5C;
-
-  // Grey Scale Pallete
-  --color-grey-0: #F8F9FA;
-  --color-grey-1: #868E96;
-  --color-grey-2: #343B41;
-  --color-grey-3: #212529;
-  --color-grey-4: #121214;
-
-  // Feedback Pallete
-
-  --color-sucess:       #3FE864;
-  --color-negative:     #DC3545;
-  --color-warning:      #FFAB2F;
-  --color-information:  #155BCB;
-}
-
 *{
   margin: 0;
   padding: 0;
