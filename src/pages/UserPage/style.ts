@@ -63,6 +63,20 @@ export const DivCampaign = styled.div`
 
     background-color: #6b2d5c;
     color: ${colors.colorGrey0};
+
+    transition: 0.3s;
+
+    :hover {
+      background-color: #6b2d5c80;
+    }
+  }
+
+  @media (max-width: 530px) {
+    flex-direction: column;
+
+    gap: 20px;
+
+    text-align: center;
   }
 `;
 

@@ -1,13 +1,22 @@
 import { HeaderUserPage } from "../../components/HeaderUserPage";
-import { DivCampaign, SectionEvents, UserSection } from "./styled";
+import { DivCampaign, SectionEvents, UserSection } from "./style";
 import "./style.css";
 import { CardUserPage } from "../../components/CardUserPage";
 import logo from "../../../src/logo.svg";
+import { MenuMobile } from "../../components/MenuMobileUser";
+import { GiveContext } from "../../contexts/GiveContext";
+import { useContext } from "react";
+import { ModalCampaign } from "../../components/ModalCampaign";
 
 export const UserPage = () => {
+  const { showMenu, closeModal, setCloseModal } = useContext(GiveContext);
+
   return (
     <div>
+      {closeModal ? <ModalCampaign /> : null}
+
       <HeaderUserPage />
+      {showMenu ? <MenuMobile /> : null}
       <main>
         <UserSection>
           <figure>
@@ -20,7 +29,7 @@ export const UserPage = () => {
         </UserSection>
         <DivCampaign>
           <h2>Crie sua campanha agora mesmo!</h2>
-          <button>Criar Campanha</button>
+          <button onClick={() => setCloseModal(true)}>Criar Campanha</button>
         </DivCampaign>
         <SectionEvents>
           <h2>Meus Eventos</h2>

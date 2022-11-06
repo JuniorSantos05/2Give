@@ -17,6 +17,13 @@ export const CardEvents = styled.li`
   border-radius: 8px;
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  transition: all 0.5s;
+  cursor: pointer;
+
+  :hover {
+    transform: scale(1.15);
+  }
   figure {
     border-radius: 8px;
 
@@ -31,10 +38,8 @@ export const CardEvents = styled.li`
   .container {
     height: 8px;
     background-color: ${colors.colorPrimarySoft};
-    position: relative;
   }
   .container .progress-bar {
-    position: absolute;
     height: 100%;
     background-color: ${colors.colorPrimary};
     animation: progress-animation 5s infinite;

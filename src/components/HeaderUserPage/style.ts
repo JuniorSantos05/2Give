@@ -20,6 +20,16 @@ const StylerHeaderUser = styled.header`
     color: ${colors.colorPrimary};
   }
 
+  svg {
+    color: ${colors.colorPrimary};
+  }
+
+  @media (min-width: 460px) {
+    svg {
+      display: none;
+    }
+  }
+
   nav {
     width: 70%;
     display: flex;
@@ -62,6 +72,10 @@ const StylerHeaderUser = styled.header`
       :hover {
         background-color: ${colors.colorPrimarySoft};
       }
+    }
+
+    @media (max-width: 460px) {
+      display: none;
     }
   }
 `;
