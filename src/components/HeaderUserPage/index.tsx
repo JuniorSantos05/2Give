@@ -29,13 +29,13 @@ export const HeaderUserPage = () => {
           </li>
           <li>
             {" "}
-            <Link to={""} className="dashboard">
+            <Link to={"/"} className="dashboard">
               Dashboard
             </Link>
           </li>
           <li>
             {" "}
-            <Link to={""}>Eventos</Link>
+            <Link to={"/events"}>Eventos</Link>
           </li>
         </ul>
         <button>Sair</button>
