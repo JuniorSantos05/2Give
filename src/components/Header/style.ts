@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import { colors } from "../../styles/Global/colors";
 
 export const HeaderStyle = styled.header`
     width: 100%;
     height: 92px;
-    background-color: #FFF0F6;
+    background-color: ${colors.colorBackground};
     box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
     
     display: flex;
@@ -28,7 +29,7 @@ export const HeaderStyle = styled.header`
             gap: 39px;
 
             #active{
-                color: #F0386B;
+                color: ${colors.colorPrimary};
             }
 
             a{
@@ -40,7 +41,7 @@ export const HeaderStyle = styled.header`
         button{
             height: 44px;
             padding-inline: 34.6px;
-            background-color: #F0386B;
+            background-color: ${colors.colorPrimary};
             color: white;
             border-radius: 8px;
         }
