@@ -13,7 +13,7 @@ function App() {
         <RoutesMain />
       </GiveProvider>
     </>
-  );
+  )
 }
 
 export default App;
