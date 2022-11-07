@@ -1,81 +1,43 @@
-import { HeaderStyle } from "./style"
-import logo from "../../assets/Logo.svg"
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import NavComponentHeader from "./navComponentHeader"
 
-interface IHeader {
+import { HeaderStyle, ModalHeader } from "./style"
+import logo from "../../assets/Logo.svg"
+import { BsJustify } from 'react-icons/bs'
+import { AiOutlineClose } from 'react-icons/ai'
+
+
+
+export interface IHeader {
     headerType: "type1" | "type2"
 }
 
 
-function Header ({headerType}:IHeader ){
-    const userLog = false
+function Header ({headerType}:IHeader){
+    const [isModal, setIsModal] = useState(false)
 
-    if(headerType === "type1"){
-        return(
-            <HeaderStyle>
-                <header>
-                    <img src={logo} alt="2Give Logo" />
-                    <nav>
-                        <Link to={""}>
-                            <h4 id="active">Home</h4>
-                        </Link>
-                        <Link to={""}>
-                            <h4>Sobre nós</h4>
-                        </Link>
-                        <Link to={""}>
-                            <h4>Contato</h4>
-                        </Link>
-                        {
-                            userLog ? (
-                                <button>
-                                    <h4>Sair</h4>
-                                </button>
-                            ) :(
-                                <>
-                                    <Link to={"/login"}>
-                                        <button>
-                                            <h4>Login</h4>
-                                        </button>
-                                    </Link>
-                                    <Link to={"/register"}>
-                                        <button>
-                                            <h4>Cadastrar</h4>
-                                        </button>
-                                    </Link>
-                                </>
-                            )
-                        }
-                    </nav>
-                </header>
-            </HeaderStyle>
-    
-        )
-    }else{
-        return(
-            <HeaderStyle>
-                <header>
-                    <img src={logo} alt="2Give Logo" />
-                    <nav>
-                        <Link to={"/home"}>
-                            <h4 id="active">Home</h4>
-                        </Link>
-                        <Link to={"/dashboard"}>
-                            <h4>Dashboard</h4>
-                        </Link>
-                        <Link to={"/events"}>
-                            <h4>Eventos</h4>
-                        </Link>
-                        {
-                            <button>
-                                <h4>Sair</h4>
-                            </button>
-                            
-                        }
-                    </nav>
-                </header>
-            </HeaderStyle>
-        )
+    function togglemodal(){
+        isModal ? setIsModal(false) : setIsModal(true)
     }
+
+    return(
+        <>
+            <HeaderStyle>
+                <header>
+                    <img src={logo} alt="2Give Logo" />
+                    <NavComponentHeader headerType={headerType} />
+                    {
+                        isModal ? <AiOutlineClose onClick={togglemodal} /> : <BsJustify onClick={togglemodal} />
+                    }
+                </header>
+            </HeaderStyle>
+            {
+                isModal && <ModalHeader> <NavComponentHeader headerType={headerType} /> </ModalHeader>
+            }
+ 
+        </>
+    )
+
 }
 
 export default Header

@@ -23,29 +23,82 @@ export const HeaderStyle = styled.header`
             height: 45px;
         }
 
-        nav{
-            display: flex;
-            align-items: center;
-            gap: 39px;
-
-            #active{
-                color: ${colors.colorPrimary};
-            }
-
-            a{
-                color: black;
-            }
-
+        svg{
+            display: none;
         }
 
-        button{
-            height: 44px;
-            padding-inline: 34.6px;
-            background-color: ${colors.colorPrimary};
-            color: white;
-            border-radius: 8px;
+        @media (max-width: 800px) {
+            nav{
+                display: none;
+            }
+
+            svg{
+                display: flex;
+                height: 40px;
+                width: 40px;
+                color: ${colors.colorPrimary};
+            }
         }
 
     }
 
+`
+
+export const ModalHeader = styled.div`
+    background-color: ${colors.colorBackground};
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 92px;
+
+    @media (min-width: 800px){
+        display: none;
+    }
+    
+`
+
+export const NavStyle = styled.nav`
+
+    display: flex;
+    align-items: center;
+    gap: 39px;
+
+    #active{
+        color: ${colors.colorPrimary};
+    }
+
+    a{
+        color: black;
+    }
+
+    button{
+        height: 44px;
+        padding-inline: 34.6px;
+        background-color: ${colors.colorPrimary};
+        color: white;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+
+
+    @media (max-width: 800px) {
+        width: 90%;
+        padding: 10px;
+        margin: 0 auto;
+        padding-top: 30px;
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+            
+        button{
+            font-size: 30px;
+        }
+
+        h4{
+            font-size: 30px;
+            color: black;
+        }
+    }
 `
