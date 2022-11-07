@@ -10,7 +10,7 @@ export default createGlobalStyle`
 
 html, body{
   font-family: 'Inter', sans-serif;
-  background-color: var(--color-grey-0);
+  background-color: #FFF0F6;
   height: 100vh;
   width: 100vw;
 }
@@ -18,7 +18,7 @@ html, body{
 button{
   cursor: pointer;
   border: none;
-  /* background-color: var(--color-grey-0); */
+
 }
 
 ul, ol, li{
