@@ -78,6 +78,10 @@ const StylerHeaderUser = styled.header`
       display: none;
     }
   }
+
+  .dashboard {
+    color: ${colors.colorPrimary};
+  }
 `;
 
 export default StylerHeaderUser;

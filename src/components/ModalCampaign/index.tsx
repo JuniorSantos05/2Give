@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { GiveContext } from "../../contexts/GiveContext";
+import { GiveContext, IProjectsData } from "../../contexts/GiveContext";
 import { StyleModalCampaign } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 export const ModalCampaign = () => {
-  const { setCloseModal } = useContext(GiveContext);
+  const { setCloseModal, createProjects } = useContext(GiveContext);
 
   const formSchemaCampaign = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -18,13 +18,13 @@ export const ModalCampaign = () => {
     description: yup.string().required("Campo Obrigatório"),
   });
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit } = useForm<IProjectsData>({
     resolver: yupResolver(formSchemaCampaign),
   });
 
   return (
     <StyleModalCampaign>
-      <form onSubmit={handleSubmit("")}>
+      <form onSubmit={handleSubmit(createProjects)}>
         <div>
           <h2>Criar Campanha</h2>
           <p onClick={() => setCloseModal(false)}>X</p>

@@ -29,7 +29,9 @@ export const HeaderUserPage = () => {
           </li>
           <li>
             {" "}
-            <Link to={""}>Dashboard</Link>
+            <Link to={""} className="dashboard">
+              Dashboard
+            </Link>
           </li>
           <li>
             {" "}
