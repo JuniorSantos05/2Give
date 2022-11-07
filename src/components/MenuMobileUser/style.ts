@@ -47,4 +47,18 @@ export const DivMenuMobile = styled.div`
       }
     }
   }
+  button {
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    background-color: ${colors.colorPrimary};
+    color: ${colors.colorGrey0};
+
+    transition: all 0.3s;
+
+    :hover {
+      background-color: ${colors.colorPrimarySoft};
+    }
+  }
 `;

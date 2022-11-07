@@ -1,22 +1,23 @@
-import logo from "../../../src/logo.svg";
+import { useContext } from "react";
+import { GiveContext } from "../../contexts/GiveContext";
 import { CardEvents } from "./styled";
 
 export const CardUserPage = () => {
+  const { projects } = useContext(GiveContext);
+
+  console.log(projects);
+
   return (
-    <CardEvents>
-      <figure>
-        <img src={logo} alt="imagem da campanha" />
-      </figure>
-      <h3>Natal sem fome</h3>
-      <div className="container">
-        <div className="progress-bar"></div>
-      </div>
-      <div>
-        <span>
-          Meta: <strong>R$ 30.000</strong>
-        </span>
-        <p>(50%)</p>
-      </div>
-    </CardEvents>
+    <>
+      {projects.map((project) => (
+        <CardEvents key={project.id}>
+          <figure>
+            <img src={project.image} alt="imagem da campanha" />
+          </figure>
+          <h3>{project.name}</h3>
+          <span>{project.address}</span>
+        </CardEvents>
+      ))}
+    </>
   );
 };

@@ -25,31 +25,26 @@ export const CardEvents = styled.li`
     transform: scale(1.15);
   }
   figure {
+    width: 200px;
+
+    margin: 0 auto;
+
     border-radius: 8px;
 
     background-color: ${colors.colorInformation};
-  }
 
-  div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .container {
-    height: 8px;
-    background-color: ${colors.colorPrimarySoft};
-  }
-  .container .progress-bar {
-    height: 100%;
-    background-color: ${colors.colorPrimary};
-    animation: progress-animation 5s infinite;
-  }
-  @keyframes progress-animation {
-    0% {
-      width: 0%;
-    }
-    100% {
+    img {
       width: 100%;
     }
+  }
+
+  h3 {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  span {
+    font-size: 12px;
+    text-align: center;
   }
 `;

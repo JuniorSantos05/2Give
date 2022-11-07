@@ -4,7 +4,7 @@ import { colors } from "../../styles/Global/colors";
 export const StyleModalCampaign = styled.div`
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
 
   background-color: rgba(10, 37, 64, 0.35);
 
@@ -48,6 +48,16 @@ export const StyleModalCampaign = styled.div`
 
     transition: all 0.3s;
 
+    span {
+      display: none;
+    }
+
+    h6 {
+      color: ${colors.colorNegative};
+
+      font-size: 10px;
+    }
+
     label {
       display: flex;
       flex-direction: column;
@@ -55,6 +65,12 @@ export const StyleModalCampaign = styled.div`
       gap: 8px;
 
       input {
+        padding: 12px 5px;
+
+        border-radius: 6px;
+      }
+
+      select {
         padding: 12px 5px;
 
         border-radius: 6px;

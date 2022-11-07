@@ -16,6 +16,7 @@ export const MenuMobile = () => {
           {" "}
           <Link to={""}>Eventos</Link>
         </li>
+        <button>Sair</button>
       </ul>
     </DivMenuMobile>
   );

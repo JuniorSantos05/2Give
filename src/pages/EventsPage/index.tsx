@@ -27,14 +27,6 @@ export const EventsPage = () => {
           </nav>
           <ul>
             <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
           </ul>
         </SectionEvents>
       </main>

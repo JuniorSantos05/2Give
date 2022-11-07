@@ -35,6 +35,8 @@ const StylerHeaderUser = styled.header`
     display: flex;
     justify-content: space-evenly;
 
+    max-width: 700px;
+
     ul {
       width: 80%;
 
