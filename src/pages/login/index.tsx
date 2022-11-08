@@ -3,13 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useForm , SubmitHandler} from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "../../styles/button";
+import { Button } from "../../components/Button";
+import { LoginForm } from "../../styles/LoginForm";
 import { Flex } from "../../styles/flex";
-import { Input, H3, H4, Label, H5 } from "../../styles/card";
+import { H3, H4, Label, H5 } from "../../styles/card";
 import 'react-toastify/dist/ReactToastify.css';
 import { Card, Text } from "@nextui-org/react";
 import { ILoginUser } from "../../contexts/GiveContext";
 import { GiveContext } from "../../contexts/GiveContext";
+import Logo from "../../assets/Logo.svg";
+import { LinkBack, LinkLogin } from "../../components/Link/styles";
+import { FlexContainer } from "../../styles/FlexContainer";
+import { Input } from "../../components/Input";
 
 const Login = () => {
     const formSchema = yup.object().shape({
@@ -39,40 +44,51 @@ const Login = () => {
     const {loginUser} = useContext(GiveContext);
     
     return (
-      <Card>
+      <>
         <Flex>
-          <form onSubmit={handleSubmit(loginUser)}>
-            <div>
-              <Flex>
-                <H3>Login</H3>
-              </Flex>
-              <H5>E-mail</H5>
+          <LoginForm onSubmit={handleSubmit(loginUser)}>
+          <header>
+          <figure>
+            <img src={Logo} alt="Logo 2Give" />
+          </figure>
+          <LinkBack to="landingPage">Voltar</LinkBack>
+        </header>
+            <FlexContainer
+          display="flex"
+          flexDirection="column"
+          justifyContent="center">
+          <h1>Login</h1>
+          <FlexContainer media="responsive">
               <Input
-                id="email"
-                type="email"
+                register={register}
+                error={errors.email}
+                label="E-mail"
                 placeholder="e-mail"
                 {...register("email")}
               />
-              <H4>{errors.email?.message}</H4>
-            </div>
-            <div>
-              <H5>Senha</H5>
-              <Input
-                id="password"
+               <Input
+                register={register}
+                error={errors.password}
+                label="Senha"
                 placeholder="senha"
                 {...register("password")}
               />
-              <H4>{errors.password?.message}</H4>
-            </div>
-            <Button backgroundColor={true} small={false} type="submit">Entrar</Button>
-            <Flex>
-            <Label>Ainda não é cadastrado?</Label>
-            </Flex>
-            <Button backgroundColor={false} small={false}   onClick={() => navigate(`/register`)}>Registrar</Button>
-            {/*navigate(`/register, {replace: true}`)*/}
-          </form>
+            </FlexContainer>
+            <FlexContainer
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center">
+            <Button type="submit" btnStyle="btnPrimary">
+              Login
+            </Button>
+            <span>Ainda não é cadastrado?</span>
+            <LinkLogin to="register">Cadastrar</LinkLogin>
+          </FlexContainer>
+          </FlexContainer>
+          </LoginForm>
         </Flex>
-      </Card>
+      </>
     );
   };
   
