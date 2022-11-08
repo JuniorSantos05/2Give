@@ -5,6 +5,8 @@ export const colors = {
     colorSecundary:    '#6B2D5C',
     colorBackgroud: '#ffe3e3',
 
+
+
   // Grey Scale Pallete
     colorGrey0: '#F8F9FA',
     colorGrey1: '#868E96',
