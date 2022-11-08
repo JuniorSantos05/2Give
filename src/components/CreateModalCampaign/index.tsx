@@ -1,12 +1,15 @@
 import { useContext } from "react";
-import { GiveContext, IProjects } from "../../contexts/GiveContext";
+import {
+  GiveContextUserPage,
+  IProjects,
+} from "../../contexts/GiveContextUserPage";
 import { StyleModalCampaign } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 export const ModalCampaign = () => {
-  const { setCloseModal, createProjects } = useContext(GiveContext);
+  const { setCloseModal, createProjects } = useContext(GiveContextUserPage);
 
   const formSchemaCampaign = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),

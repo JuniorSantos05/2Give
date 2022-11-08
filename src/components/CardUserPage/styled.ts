@@ -6,10 +6,11 @@ export const CardEvents = styled.li`
   flex-direction: column;
   justify-content: center;
 
-  gap: 10px;
+  gap: 30px;
 
+  width: 250px;
   min-width: 250px;
-  height: 300px;
+  height: 350px;
 
   margin: 25px 10px;
   padding: 10px;
@@ -21,9 +22,9 @@ export const CardEvents = styled.li`
   transition: all 0.5s;
   cursor: pointer;
 
-  :hover {
+  /* :hover {
     transform: scale(1.15);
-  }
+  } */
   figure {
     width: 200px;
 
@@ -38,6 +39,15 @@ export const CardEvents = styled.li`
     }
   }
 
+  div {
+    display: flex;
+    flex-direction: column;
+
+    height: 30%;
+
+    gap: 10px;
+  }
+
   h3 {
     font-size: 14px;
     text-align: center;
@@ -46,5 +56,16 @@ export const CardEvents = styled.li`
   span {
     font-size: 12px;
     text-align: center;
+  }
+
+  button {
+    background-color: ${colors.colorPrimary};
+    color: ${colors.colorGrey0};
+
+    padding: 5px;
+    margin: 0 auto;
+    border-radius: 10px;
+
+    width: 150px;
   }
 `;

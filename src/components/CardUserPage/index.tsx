@@ -1,21 +1,24 @@
 import { useContext } from "react";
-import { GiveContext } from "../../contexts/GiveContext";
+import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { CardEvents } from "./styled";
 
 export const CardUserPage = () => {
-  const { projects } = useContext(GiveContext);
-
-  console.log(projects);
+  const { projectsFiltered, showProject } = useContext(GiveContextUserPage);
 
   return (
     <>
-      {projects.map((project) => (
+      {projectsFiltered.map((project) => (
         <CardEvents key={project.id}>
           <figure>
             <img src={project.image} alt="imagem da campanha" />
           </figure>
-          <h3>{project.name}</h3>
-          <span>{project.address}</span>
+          <div>
+            <h3>{project.name}</h3>
+            <span>{project.address}</span>
+            <button onClick={() => showProject(project.id)}>
+              Mais Informações
+            </button>
+          </div>
         </CardEvents>
       ))}
     </>

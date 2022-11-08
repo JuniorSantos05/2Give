@@ -4,15 +4,19 @@ import "./style.css";
 import { CardUserPage } from "../../components/CardUserPage";
 import logo from "../../../src/logo.svg";
 import { MenuMobile } from "../../components/MenuMobileUser";
-import { GiveContext } from "../../contexts/GiveContext";
+import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { useContext } from "react";
-import { ModalCampaign } from "../../components/ModalCampaign";
+import { ModalCampaign } from "../../components/CreateModalCampaign";
+import { InfoModalCampaign } from "../../components/InfoModalCampaign";
 
 export const UserPage = () => {
-  const { showMenu, closeModal, setCloseModal } = useContext(GiveContext);
+  const { showMenu, closeModal, setCloseModal, showModalInfo } =
+    useContext(GiveContextUserPage);
 
   return (
     <div>
+      {showModalInfo ? <InfoModalCampaign /> : null}
+
       {closeModal ? <ModalCampaign /> : null}
 
       <HeaderUserPage />
@@ -34,10 +38,6 @@ export const UserPage = () => {
         <SectionEvents>
           <h2>Meus Eventos</h2>
           <ul>
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
-            <CardUserPage />
             <CardUserPage />
           </ul>
         </SectionEvents>

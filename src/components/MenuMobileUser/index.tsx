@@ -10,11 +10,13 @@ export const MenuMobile = () => {
         </li>
         <li>
           {" "}
-          <Link to={""}>Dashboard</Link>
+          <Link to={"/"} className="dashboard">
+            Dashboard
+          </Link>
         </li>
         <li>
           {" "}
-          <Link to={""}>Eventos</Link>
+          <Link to={"/events"}>Eventos</Link>
         </li>
         <button>Sair</button>
       </ul>

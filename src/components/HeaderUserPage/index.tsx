@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import StylerHeaderUser from "./style";
 import { AiOutlineMenu } from "react-icons/ai";
-import { GiveContext } from "../../contexts/GiveContext";
+import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { useContext } from "react";
 
 export const HeaderUserPage = () => {
-  const { showMenu, setShowMenu } = useContext(GiveContext);
+  const { showMenu, setShowMenu } = useContext(GiveContextUserPage);
 
   return (
     <StylerHeaderUser>
