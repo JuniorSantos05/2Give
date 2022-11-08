@@ -39,58 +39,53 @@ const Register = () => {
           </figure>
           <LinkBack to="register">Voltar</LinkBack>
         </header>
-        <FlexContainer
-          display="flex"
-          flexDirection="column"
-          justifyContent="center">
+
+        <FlexContainer flexDirection="column" media="responsive">
           <h1>Cadastrar</h1>
+          <Input
+            type="text"
+            register={register}
+            error={errors.username}
+            label="Nome"
+            id="username"
+            placeholder="Digite seu nome"
+          />
 
-          <FlexContainer media="responsive">
-            <Input
-              type="text"
-              register={register}
-              error={errors.username}
-              label="Nome"
-              id="username"
-              placeholder="Digite seu nome"
-            />
+          <Input
+            type="email"
+            register={register}
+            error={errors.email}
+            label="Email"
+            id="email"
+            placeholder="Digite seu email"
+          />
 
-            <Input
-              type="email"
-              register={register}
-              error={errors.email}
-              label="Email"
-              id="email"
-              placeholder="Digite seu email"
-            />
+          <Input
+            type="password"
+            register={register}
+            error={errors.password}
+            label="Senha"
+            id="password"
+            placeholder="Digite sua senha"
+          />
 
-            <Input
-              type="password"
-              register={register}
-              error={errors.password}
-              label="Senha"
-              id="password"
-              placeholder="Digite sua senha"
-            />
+          <Input
+            type="password"
+            register={register}
+            error={errors.confirmPassword}
+            label="Confirmar senha"
+            id="confirmPassword"
+            placeholder="Digite sua senha"
+          />
 
-            <Input
-              type="password"
-              register={register}
-              error={errors.confirmPassword}
-              label="Confirmar senha"
-              id="confirmPassword"
-              placeholder="Digite sua senha"
-            />
-
-            <Input
-              type="text"
-              register={register}
-              error={errors.imagem}
-              label="Imagem de perfil"
-              id="imagem"
-              placeholder="Adicione uma URL"
-            />
-          </FlexContainer>
+          <Input
+            type="text"
+            register={register}
+            error={errors.imagem}
+            label="Imagem de perfil"
+            id="imagem"
+            placeholder="Adicione uma URL"
+          />
 
           <FlexContainer
             display="flex"
