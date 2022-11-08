@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { colors } from "../Global/colors";
 
 interface IFlexContainerProps {
   display?: string;
@@ -22,23 +23,15 @@ export const FlexContainer = styled.div<IFlexContainerProps>`
   max-width: 768px;
   margin: 0 auto;
   border-radius: 16px;
+
+  padding: 10px;
+  background-color: ${colors.colorGrey0};
   display: ${(props) => props.display || "block"};
   flex-direction: ${(props) => props.flexDirection || "row"};
   align-items: ${(props) => props.alignItems || "flex-start"};
   justify-content: ${(props) => props.justifyContent || "flex-start"};
   flex-wrap: ${(props) => props.flexWrap};
   gap: ${(props) => props.gap || "20px"};
-  padding: 10px;
-  background-color: #fff;
-
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
-    text-align: start;
-  }
 
   ${({ media }) => {
     switch (media) {

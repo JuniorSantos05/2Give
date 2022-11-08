@@ -1,0 +1,113 @@
+import Logo from "../../assets/Logo.svg";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { RegisterForm } from "../../styles/RegisterForm";
+import { schemaRegister } from "./validation";
+import { FlexContainer } from "../../styles/FlexContainer";
+import { Button } from "../../components/Button";
+import { LinkBack, LinkLogin } from "../../components/Link/styles";
+import { Input } from "../../components/Input";
+
+export interface IRegisterForm {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  imagem: string;
+}
+
+const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IRegisterForm>({
+    resolver: yupResolver(schemaRegister),
+  });
+
+  const dataRegister = (data: IRegisterForm): any => {
+    console.log("oi");
+    console.log(data);
+  };
+
+  return (
+    <>
+      <RegisterForm onSubmit={handleSubmit(dataRegister)}>
+        <header>
+          <figure>
+            <img src={Logo} alt="Logo 2Give" />
+          </figure>
+          <LinkBack to="register">Voltar</LinkBack>
+        </header>
+
+        <FlexContainer flexDirection="column" media="responsive">
+          <h1>Cadastrar</h1>
+          <Input
+            type="text"
+            register={register}
+            error={errors.username}
+            label="Nome"
+            id="username"
+            placeholder="Digite seu nome"
+            autoComplete="off"
+          />
+
+          <Input
+            type="email"
+            register={register}
+            error={errors.email}
+            label="Email"
+            id="email"
+            placeholder="Digite seu email"
+            autoComplete="off"
+          />
+
+          <Input
+            type="password"
+            register={register}
+            error={errors.password}
+            label="Senha"
+            id="password"
+            placeholder="Digite sua senha"
+            autoComplete="off"
+          />
+
+          <Input
+            type="password"
+            register={register}
+            error={errors.confirmPassword}
+            label="Confirmar senha"
+            id="confirmPassword"
+            placeholder="Digite sua senha"
+            autoComplete="off"
+          />
+
+          <Input
+            type="text"
+            register={register}
+            error={errors.imagem}
+            label="Imagem de perfil"
+            id="imagem"
+            placeholder="Adicione uma URL"
+            autoComplete="off"
+          />
+
+          {/* <Button
+            type="submit"
+            btnStyle="btnPrimary"
+            onClick={() => dataRegister}>
+            Registrar
+          </Button> */}
+
+          <button type="submit"> Registrar</button>
+
+          <span>Já é cadastrado?</span>
+
+          <LinkLogin to="logar">Logar</LinkLogin>
+        </FlexContainer>
+      </RegisterForm>
+    </>
+  );
+};
+
+export default Register;
