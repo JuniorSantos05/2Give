@@ -4,6 +4,8 @@ import { colors } from "../../styles/Global/colors";
 export const MenuStyled = styled.ul`
   margin: 80px auto;
   flex-wrap: nowrap;
+
+  gap: 10px;
   li {
     width: 200px;
 
@@ -15,6 +17,8 @@ export const MenuStyled = styled.ul`
 
     border-radius: 12px;
     border: 1px solid ${colors.colorGrey4};
+
+    background-color: ${colors.colorGrey0};
 
     cursor: pointer;
 

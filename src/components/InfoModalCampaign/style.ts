@@ -69,6 +69,12 @@ export const StyleInfoCampaign = styled.div`
       align-items: center;
       justify-content: space-between;
 
+      padding: 10px 0;
+
+      width: 100%;
+
+      margin: 0;
+
       h3 {
         font-weight: ${typography.title1.weight};
         font-size: 24px;
@@ -95,6 +101,10 @@ export const StyleInfoCampaign = styled.div`
         cursor: pointer;
 
         color: ${colors.colorGrey2};
+
+        :hover {
+          color: ${colors.colorPrimarySoft};
+        }
       }
     }
 

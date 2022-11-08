@@ -6,6 +6,8 @@ export const CardEvents = styled.li`
   flex-direction: column;
   justify-content: center;
 
+  background-color: ${colors.colorGrey0};
+
   gap: 30px;
 
   width: 250px;
@@ -22,9 +24,11 @@ export const CardEvents = styled.li`
   transition: all 0.5s;
   cursor: pointer;
 
-  /* :hover {
-    transform: scale(1.15);
-  } */
+  :hover {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px,
+      ${colors.colorPrimary} 0px 0px 0px 3px;
+  }
+
   figure {
     width: 200px;
 
@@ -67,5 +71,9 @@ export const CardEvents = styled.li`
     border-radius: 10px;
 
     width: 150px;
+
+    :hover {
+      background-color: ${colors.colorPrimarySoft};
+    }
   }
 `;
