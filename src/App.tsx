@@ -1,5 +1,3 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Global from "./styles/Global/global";
 import RoutesMain from "./routes";
@@ -15,7 +13,7 @@ function App() {
         <RoutesMain />
       </GiveProvider>
     </>
-  );
+  )
 }
 
 export default App;

@@ -3,7 +3,9 @@ export const colors = {
     colorPrimary:      '#F0386B',
     colorPrimarySoft: '#FF5376',
     colorSecundary:    '#6B2D5C',
-    colorBackground: "#FFF0F6",
+    colorBackgroud: '#ffe3e3',
+
+
 
   // Grey Scale Pallete
     colorGrey0: '#F8F9FA',
