@@ -23,6 +23,7 @@ export const FlexContainer = styled.div<IFlexContainerProps>`
   max-width: 768px;
   margin: 0 auto;
   border-radius: 16px;
+
   padding: 10px;
   background-color: ${colors.colorGrey0};
   display: ${(props) => props.display || "block"};
