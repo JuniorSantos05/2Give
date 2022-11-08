@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
+import { Contact } from "../pages/Contact";
 
 const RoutesMain = () => {
   return (
     <Routes>
-      <Route path="/" element={"test"} />
+      <Route path="/" element={<Contact />} />
     </Routes>
   );
 };
