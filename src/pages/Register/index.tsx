@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterForm } from "../../styles/RegisterForm";
 import { schemaRegister } from "./validation";
 import { FlexContainer } from "../../styles/FlexContainer";
-import { Link } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { LinkBack, LinkLogin } from "../../components/Link/styles";
 import { Input } from "../../components/Input";
@@ -26,7 +25,8 @@ const Register = () => {
     resolver: yupResolver(schemaRegister),
   });
 
-  const dataRegister = (data: IRegisterForm) => {
+  const dataRegister = (data: IRegisterForm): any => {
+    console.log("oi");
     console.log(data);
   };
 
@@ -46,57 +46,50 @@ const Register = () => {
           <h1>Cadastrar</h1>
 
           <FlexContainer media="responsive">
-            <div>
-              <Input
-                register={register}
-                error={errors.username}
-                label="Nome"
-                name="username"
-                placeholder="Digite seu nome"
-              />
+            <Input
+              type="text"
+              register={register}
+              error={errors.username}
+              label="Nome"
+              id="username"
+              placeholder="Digite seu nome"
+            />
 
-              <Input
-                register={register}
-                error={errors.email}
-                label="Email"
-                name="email"
-                placeholder="Digite seu email"
-              />
+            <Input
+              type="email"
+              register={register}
+              error={errors.email}
+              label="Email"
+              id="email"
+              placeholder="Digite seu email"
+            />
 
-              <Input
-                register={register}
-                error={errors.password}
-                label="Senha"
-                name="password"
-                placeholder="Digite sua senha"
-              />
-            </div>
+            <Input
+              type="password"
+              register={register}
+              error={errors.password}
+              label="Senha"
+              id="password"
+              placeholder="Digite sua senha"
+            />
 
-            <div>
-              <Input
-                register={register}
-                error={errors.password}
-                label="Confirmar senha"
-                name="password"
-                placeholder="Digite sua senha"
-              />
+            <Input
+              type="password"
+              register={register}
+              error={errors.confirmPassword}
+              label="Confirmar senha"
+              id="confirmPassword"
+              placeholder="Digite sua senha"
+            />
 
-              <Input
-                register={register}
-                error={errors.confirmPassword}
-                label="Confirmar senha"
-                name="password"
-                placeholder="Confirme sua senha"
-              />
-
-              <Input
-                register={register}
-                error={errors.imagem}
-                label="Imagem de perfil"
-                name="imagem"
-                placeholder="Adicione uma URL"
-              />
-            </div>
+            <Input
+              type="text"
+              register={register}
+              error={errors.imagem}
+              label="Imagem de perfil"
+              id="imagem"
+              placeholder="Adicione uma URL"
+            />
           </FlexContainer>
 
           <FlexContainer

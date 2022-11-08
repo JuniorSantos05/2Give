@@ -36,4 +36,8 @@ export const RegisterForm = styled.form`
     border: 1px solid #f0386b;
     border-radius: 4px;
   }
+
+  span {
+    color: #000000 !important;
+  }
 `;
