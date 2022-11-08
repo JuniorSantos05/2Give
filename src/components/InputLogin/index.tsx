@@ -1,22 +1,24 @@
-import { FieldError, FieldValues, UseFormRegister} from "react-hook-form";
+import { FieldError, UseFormRegister} from "react-hook-form";
+import { InputHTMLAttributes } from "react";
 
-interface IInputProps {
+interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   error: FieldError | undefined;
   register: UseFormRegister<any>;
   name: string;
-  placeholder: string;
 }
 
 export const Input = ({
   label,
   name,
-  placeholder,
+  register,
+  error,
+  ...rest
 }: IInputProps) => {
   return (
     <>
       <label>{label}</label>
-      <input {...register(name)} placeholder={placeholder} />
+      <input {...rest} {...register(name)} />
       {error && <span className="error">{error?.message}</span>}
     </>
   );
