@@ -13,9 +13,18 @@ main {
 ul {
 
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
 
-    gap: 10px;
+}
 
-    overflow-x: auto;
+@media (max-width: 615px) {
+
+    ul {
+
+        justify-content: flex-start;
+
+        overflow-x: auto;
+    }
+
+
 }
