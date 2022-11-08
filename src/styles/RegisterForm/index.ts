@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors } from "../Global/colors";
+import { typography } from "../Global/typography";
 
 export const RegisterForm = styled.form`
   padding: 1.5rem 3rem 1.5rem 3rem;

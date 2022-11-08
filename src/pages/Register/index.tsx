@@ -49,6 +49,7 @@ const Register = () => {
             label="Nome"
             id="username"
             placeholder="Digite seu nome"
+            autoComplete="off"
           />
 
           <Input
@@ -58,6 +59,7 @@ const Register = () => {
             label="Email"
             id="email"
             placeholder="Digite seu email"
+            autoComplete="off"
           />
 
           <Input
@@ -67,6 +69,7 @@ const Register = () => {
             label="Senha"
             id="password"
             placeholder="Digite sua senha"
+            autoComplete="off"
           />
 
           <Input
@@ -76,6 +79,7 @@ const Register = () => {
             label="Confirmar senha"
             id="confirmPassword"
             placeholder="Digite sua senha"
+            autoComplete="off"
           />
 
           <Input
@@ -85,21 +89,21 @@ const Register = () => {
             label="Imagem de perfil"
             id="imagem"
             placeholder="Adicione uma URL"
+            autoComplete="off"
           />
 
-          <FlexContainer
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center">
-            <Button type="submit" btnStyle="btnPrimary">
-              Registrar
-            </Button>
+          {/* <Button
+            type="submit"
+            btnStyle="btnPrimary"
+            onClick={() => dataRegister}>
+            Registrar
+          </Button> */}
 
-            <span>Já é cadastrado?</span>
+          <button type="submit"> Registrar</button>
 
-            <LinkLogin to="logar">Logar</LinkLogin>
-          </FlexContainer>
+          <span>Já é cadastrado?</span>
+
+          <LinkLogin to="logar">Logar</LinkLogin>
         </FlexContainer>
       </RegisterForm>
     </>
