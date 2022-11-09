@@ -81,6 +81,7 @@ export const ContentStyle = styled.div`
     main{
         color: black;
         display: flex;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: 28px;

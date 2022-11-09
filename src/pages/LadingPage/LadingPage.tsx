@@ -59,7 +59,9 @@ export const LandingPage = () => {
         />
       </ContentStyle>
       <FooterStyle>
-        <img src={Scroll} alt="mouse com seta para rolagem" />
+        <Link to={""}>
+            <img src={Scroll} alt="mouse com seta para rolagem" />
+        </Link>
       </FooterStyle>
     </>
   );
