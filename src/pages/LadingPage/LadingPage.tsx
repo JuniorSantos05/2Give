@@ -28,8 +28,12 @@ export const LandingPage = () => {
               <Link to={"/contact"}>Contato</Link>
             </li>
           </ul>
+          <Link to={"/login"}>
           <button className="btn">Login</button>
+          </Link>
+          <Link to={"/register"}>
           <button className="btn">Cadastro</button>
+          </Link>
           <RiMenuFill
             onClick={() => setMenuIsVisible(true)}
             className="mobile"

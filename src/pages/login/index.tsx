@@ -35,7 +35,7 @@ const Login = () => {
           <figure>
             <img src={Logo} alt="Logo 2Give" />
           </figure>
-          <LinkBack to="landingPage">Voltar</LinkBack>
+          <LinkBack to="/">Voltar</LinkBack>
         </header>
         <FlexContainer
           display="flex"
