@@ -12,18 +12,15 @@ interface IUserContext {
   createProjects(data: IProjects): Promise<void>;
   filterProjects: string;
   projectsFiltered: IProjects[];
-  filterDonationFood(): void;
-  filterDonationToys(): void;
-  filterDonationCoat(): void;
-  filterDonationAnimals(): void;
-  filterDonation(): void;
   showModalInfo: boolean;
   setShowModalInfo: React.Dispatch<React.SetStateAction<boolean>>;
   modalProject: IProjects[];
   showProject(id: any): Promise<void>;
+  handleSearch(event: any): void;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  setFilterProjects: React.Dispatch<React.SetStateAction<string>>;
   thisPage: string;
   setThisPage: React.Dispatch<React.SetStateAction<string>>
-
 }
 
 interface IUserProviderProps {
@@ -50,10 +47,12 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
   const [closeModal, setCloseModal] = useState(false);
   const [showModalInfo, setShowModalInfo] = useState(false);
   const [projects, setProjects] = useState([] as IProjects[]);
-  const [filterProjects, setFilterProjects] = useState("All");
+  const [filterProjects, setFilterProjects] = useState("");
   const [modalProject, setModalProject] = useState([] as IProjects[]);
+  const [search, setSearch] = useState("");
   const [thisPage, setThisPage] = useState("")
 
+  console.log(projects);
   useEffect(() => {
     async function getProjects() {
       try {
@@ -91,31 +90,17 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
     }
   }
 
-  const projectsFiltered = projects.filter((project) => {
-    if (filterProjects === "All") return project;
+  const projectsFiltered = projects.filter((project) =>
+    filterProjects === ""
+      ? true
+      : project.name
+          .toLocaleLowerCase()
+          .includes(filterProjects.toLocaleLowerCase())
+  );
 
-    return project.donation === filterProjects;
-  });
-
-  function filterDonationFood() {
-    console.log();
-    setFilterProjects("Alimentos");
-  }
-  function filterDonationToys() {
-    console.log();
-    setFilterProjects("Brinquedos");
-  }
-  function filterDonationCoat() {
-    console.log();
-    setFilterProjects("Cobertores e Agasalhos");
-  }
-  function filterDonationAnimals() {
-    console.log();
-    setFilterProjects("Ração");
-  }
-  function filterDonation() {
-    console.log();
-    setFilterProjects("All");
+  function handleSearch(event: any) {
+    event.preventDefault();
+    setFilterProjects(search);
   }
 
   return (
@@ -130,15 +115,13 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
         createProjects,
         filterProjects,
         projectsFiltered,
-        filterDonationFood,
-        filterDonationToys,
-        filterDonationCoat,
-        filterDonationAnimals,
-        filterDonation,
         showModalInfo,
         setShowModalInfo,
         modalProject,
         showProject,
+        handleSearch,
+        setSearch,
+        setFilterProjects,
         thisPage,
         setThisPage,
       }}

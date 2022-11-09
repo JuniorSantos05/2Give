@@ -10,16 +10,15 @@ import { InfoModalCampaign } from "../../components/InfoModalCampaign";
 import Header from "../../components/Header";
 
 export const EventsPage = () => {
+  const { showMenu, setFilterProjects, showModalInfo } =
+    useContext(GiveContextUserPage);
+
   const {
     showMenu,
-    filterDonationFood,
-    filterDonationToys,
-    filterDonationCoat,
-    filterDonationAnimals,
-    filterDonation,
     showModalInfo,
     setThisPage,
   } = useContext(GiveContextUserPage);
+
 
   useEffect(()=>{
     setThisPage("Eventos")
@@ -34,11 +33,10 @@ export const EventsPage = () => {
         <SectionEvents>
           <nav>
             <MenuStyled>
-              <li onClick={filterDonation}>Todos</li>
-              <li onClick={filterDonationFood}>Alimentos</li>
-              <li onClick={filterDonationToys}>Brinquedos</li>
-              <li onClick={filterDonationCoat}>Agasalhos</li>
-              <li onClick={filterDonationAnimals}>Animais</li>
+              <li onClick={() => setFilterProjects("")}>Todos</li>
+              <li onClick={() => setFilterProjects("Crianças")}>Crianças</li>
+              <li onClick={() => setFilterProjects("Animais")}>Animais</li>
+              <li onClick={() => setFilterProjects("Idosos")}>Idosos</li>
             </MenuStyled>
           </nav>
           <ul>
