@@ -91,6 +91,12 @@ export const ContainerClass = styled.ul`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+
+    transition: 0.3s;
+
+    :hover {
+      background-color: #6b2d5c80;
+    }
   }
 `;
 
@@ -110,6 +116,7 @@ export const ContainerProjects = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: flex-start;
 
   @media screen and (max-width: 835px) {
     overflow-x: auto;

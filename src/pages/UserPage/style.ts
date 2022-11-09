@@ -61,7 +61,7 @@ export const DivCampaign = styled.div`
 
     padding: 10px;
 
-    background-color: #6b2d5c;
+    background-color: ${colors.colorSecundary};
     color: ${colors.colorGrey0};
 
     transition: 0.3s;

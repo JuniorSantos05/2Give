@@ -1,7 +1,9 @@
-import { AxiosError } from "axios";
-import { useEffect, useState } from "react";
-import CardProject from "../../components/cardProject/CardProject";
-import Api from "../../services/api";
+import { useContext } from "react";
+import { CardUserPage } from "../../components/CardUserPage";
+import Header from "../../components/Header";
+import { InfoModalCampaign } from "../../components/InfoModalCampaign";
+import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
+
 import {
   ContainerClass,
   ContainerProjects,
@@ -10,59 +12,19 @@ import {
   SectionProjects,
 } from "./styles";
 
-interface iApiError {
-  message: string;
-}
-
-export interface iProjects {
-  userId: string;
-  name: string;
-  description: string;
-  donation: string;
-  mark: string;
-  address: string;
-  account: string;
-  image: string;
-  id: number;
-}
-
 const HomePage = () => {
-  const [projects, setProjects] = useState([] as iProjects[]);
-  const [filteredProjects, setFilteredProjects] = useState("");
-  const [search, setSearch] = useState("");
-
-  const showProjects = projects.filter((project) =>
-    filteredProjects === ""
-      ? true
-      : project.name
-          .toLocaleLowerCase()
-          .includes(filteredProjects.toLocaleLowerCase())
-  );
-  console.log(showProjects);
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await Api.get("/projects");
-
-        setProjects(response.data);
-      } catch (error) {
-        const requestError = error as AxiosError<iApiError>;
-        console.log(requestError);
-      }
-    })();
-  }, []);
-
-  function handleSearch(event: any) {
-    event.preventDefault();
-    setFilteredProjects(search);
-    console.log(filteredProjects);
-  }
+  const {
+    handleSearch,
+    setSearch,
+    projectsFiltered,
+    setFilterProjects,
+    showModalInfo,
+  } = useContext(GiveContextUserPage);
 
   return (
     <>
-      <header>
-        <h1>Homepage</h1>
-      </header>
+      {showModalInfo ? <InfoModalCampaign /> : null}
+      <Header headerType="type1" />
 
       <MainSection>
         <div>
@@ -80,12 +42,12 @@ const HomePage = () => {
           </form>
 
           <ContainerClass>
-            <FalseButton>Destaques</FalseButton>
-            <li onClick={() => setFilteredProjects("alimentação")}>
-              Alimentação
-            </li>
-            <li onClick={() => setFilteredProjects("Agasalho")}>Agasalhos</li>
-            <li onClick={() => setFilteredProjects("")}>Todos</li>
+            <FalseButton onClick={() => setFilterProjects("")}>
+              Todos
+            </FalseButton>
+            <li onClick={() => setFilterProjects("Crianças")}>Crianças</li>
+            <li onClick={() => setFilterProjects("Animais")}>Animais</li>
+            <li onClick={() => setFilterProjects("Idosos")}>Idosos</li>
           </ContainerClass>
         </div>
 
@@ -97,9 +59,11 @@ const HomePage = () => {
 
       <SectionProjects>
         <ContainerProjects>
-          {showProjects.map((project) => (
-            <CardProject key={project.id} project={project} />
-          ))}
+          {projectsFiltered.length ? (
+            <CardUserPage />
+          ) : (
+            <h2>Sem projetos por enquanto...</h2>
+          )}
         </ContainerProjects>
       </SectionProjects>
     </>
