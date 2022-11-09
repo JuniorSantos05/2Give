@@ -1,11 +1,10 @@
 import { Routes, Route } from "react-router-dom";
+import { Contact } from "../pages/Contact";
 import HomePage from "../pages/homePage/HomePage";
-
 import { EventsPage } from "../pages/EventsPage";
 import { UserPage } from "../pages/UserPage";
 import Register from "../pages/Register";
 import Login from "../pages/login";
-
 
 
 const RoutesMain = () => {
