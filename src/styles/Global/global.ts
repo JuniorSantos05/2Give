@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { colors } from "./colors";
 
 export default createGlobalStyle`
 
@@ -10,7 +11,7 @@ export default createGlobalStyle`
 
 html, body{
   font-family: 'Inter', sans-serif;
-  background-color: #FFF0F6;
+  background-color: ${colors.colorBackground};
   height: 100vh;
   width: 100vw;
 }

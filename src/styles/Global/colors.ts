@@ -1,10 +1,10 @@
 export const colors = {
   // Primary Pallete
-
   colorPrimary: "#F0386B",
   colorPrimarySoft: "#FF5376",
   colorSecundary: "#6B2D5C",
-  colorBackgroud: "#ffe3e3",
+  colorBackground: "#FFF0F6",
+
 
   // Grey Scale Pallete
   colorGrey0: "#F8F9FA",
