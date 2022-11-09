@@ -38,47 +38,52 @@ const GiveProvider = ({ children }: IUserProviderProps) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
-//   async function loadUser() {
-//     const token = localStorage.getItem('@KenzieHub:token');
-//     if (token) {
-//         try {
-//         api.defaults.headers.authorization = `Bearer ${token}`;
-//         const {data} = await api.get('/profile');
-//         setUser(data);
-//         } catch(error) {
-//             console.error(error);
-//             localStorage.clear();
-//             navigate("/login");
-//         }
-//     }
-//     setLoading(false);
-// }
-  
-//   useEffect(() => { loadUser(); }, []);
+  //   async function loadUser() {
+  //     const token = localStorage.getItem('@KenzieHub:token');
+  //     if (token) {
+  //         try {
+  //         api.defaults.headers.authorization = `Bearer ${token}`;
+  //         const {data} = await api.get('/profile');
+  //         setUser(data);
+  //         } catch(error) {
+  //             console.error(error);
+  //             localStorage.clear();
+  //             navigate("/login");
+  //         }
+  //     }
+  //     setLoading(false);
+  // }
+
+  //   useEffect(() => { loadUser(); }, []);
 
   async function loginUser(data: ILoginUser) {
-    await api.post<IResponse>("https://json-server-projeto-front-end.herokuapp.com/login", data)
-     .then((res) =>{ const {user: userResponse, token} = res.data;
-     setUser(userResponse);
-     res.status === 200 ? toast.success("Login realizado com sucesso!") : toast.error("Ops! Algo deu errado.")
-    // window.localStorage.clear();
-    //  window.localStorage.setItem("@2Give:ID", res.data.user.id);
-     window.localStorage.setItem("@2Give:token", token);
-    //  window.localStorage.setItem("@2Give:User", res.data.user.name);
-     console.log(res)
-     setTimeout(() => {
-       navigate(`/dashboard`, { replace: true });
-     }, 500);
-     }
-     )
-     .catch(
-       (err) =>
-         err ? toast.error("Ops! Algo deu errado.") : console.log()
-     );
- }
+    try {
+      await api
+        .post<IResponse>(
+          "https://json-server-projeto-front-end.herokuapp.com/login",
+          data
+        )
+        .then((res) => {
+          const { user: userResponse, token } = res.data;
+          setUser(userResponse);
+          res.status === 200
+            ? toast.success("Login realizado com sucesso!")
+            : toast.error("Ops! Algo deu errado.");
+          window.localStorage.setItem("@2Give:token", token);
+          console.log(res);
+          setTimeout(() => {
+            navigate(`/dashboard`, { replace: true });
+          }, 500);
+        });
+    } catch (err) {
+      err ? toast.error("Ops! Algo deu errado.") : console.log();
+    }
+  }
 
   return (
-    <GiveContext.Provider value={{loginUser}}>{children}</GiveContext.Provider>
+    <GiveContext.Provider value={{ loginUser }}>
+      {children}
+    </GiveContext.Provider>
   );
 };
 export default GiveProvider;
