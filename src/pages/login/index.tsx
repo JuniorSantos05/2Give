@@ -1,26 +1,19 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "../../components/Button";
 import { LoginForm } from "../../styles/LoginForm";
 import "react-toastify/dist/ReactToastify.css";
-import { ILoginUser } from "../../contexts/GiveContextLogin";
-import { GiveContext } from "../../contexts/GiveContextLogin";
+import { GiveContextAuthorization, ILoginUser } from "../../contexts/GiveContextAuthorization";
 import Logo from "../../assets/Logo.svg";
 import { LinkBack, LinkLogin } from "../../components/Link/styles";
 import { FlexContainer } from "../../styles/FlexContainer";
 import { Input } from "../../components/Input";
+import { formSchema } from "../../schema/schemLogin";
+
 
 const Login = () => {
-  const formSchema = yup.object().shape({
-    email: yup
-      .string()
-      .required("E-mail obrigatório")
-      .email("Insira um e-mail válido."),
-    password: yup.string().required("Senha obrigatória"),
-  });
 
   const {
     register,
@@ -33,7 +26,7 @@ const Login = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("@2Give:Token");
 
-  const { loginUser } = useContext(GiveContext);
+  const { loginUser } = useContext(GiveContextAuthorization);
 
   return (
     <>

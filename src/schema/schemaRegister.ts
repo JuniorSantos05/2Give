@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-export const schemaRegister = yup.object().shape({
+export const formSchema = yup.object().shape({
   username: yup.string().required("Nome obrigatório!"),
   email: yup.string().required("Email obrigatório!").email("Email inválido!"),
   password: yup

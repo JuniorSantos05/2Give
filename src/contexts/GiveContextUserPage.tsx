@@ -42,7 +42,7 @@ export const GiveContextUserPage = createContext<IUserContext>(
   {} as IUserContext
 );
 
-const GiveProvider = ({ children }: IUserProviderProps) => {
+const GiveProviderUser = ({ children }: IUserProviderProps) => {
   const [showMenu, setShowMenu] = useState(false);
   const [closeModal, setCloseModal] = useState(false);
   const [showModalInfo, setShowModalInfo] = useState(false);
@@ -141,4 +141,4 @@ const GiveProvider = ({ children }: IUserProviderProps) => {
     </GiveContextUserPage.Provider>
   );
 };
-export default GiveProvider;
+export default GiveProviderUser;

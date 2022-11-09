@@ -2,7 +2,7 @@ import { HeaderUserPage } from "../../components/HeaderUserPage";
 import { DivCampaign, SectionEvents, UserSection } from "./style";
 import "./style.css";
 import { CardUserPage } from "../../components/CardUserPage";
-import logo from "../../../src/logo.svg";
+import Logo from "../../assets/Logo.svg";
 import { MenuMobile } from "../../components/MenuMobileUser";
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { useContext } from "react";
@@ -24,7 +24,7 @@ export const UserPage = () => {
       <main>
         <UserSection>
           <figure>
-            <img src={logo} alt="foto de perfil" />
+            <img src={Logo} alt="foto de perfil" />
           </figure>
           <div>
             <h2>Nome do Usuário</h2>
