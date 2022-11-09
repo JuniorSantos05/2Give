@@ -1,24 +1,28 @@
-import { HeaderUserPage } from "../../components/HeaderUserPage";
 import { DivCampaign, SectionEvents, UserSection } from "./style";
 import "./style.css";
 import { CardUserPage } from "../../components/CardUserPage";
 import Logo from "../../assets/Logo.svg";
 import { MenuMobile } from "../../components/MenuMobileUser";
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ModalCampaign } from "../../components/CreateModalCampaign";
 import { InfoModalCampaign } from "../../components/InfoModalCampaign";
+import Header from "../../components/Header";
+import { HeaderUserPage } from "../../components/HeaderUserPage";
 
 export const UserPage = () => {
-  const { showMenu, closeModal, setCloseModal, showModalInfo } =
+  const { showMenu, closeModal, setCloseModal, showModalInfo, setThisPage } =
     useContext(GiveContextUserPage);
+
+  useEffect(()=>{
+    setThisPage("Dashboard")
+  },[])
 
   return (
     <div>
       {showModalInfo ? <InfoModalCampaign /> : null}
 
       {closeModal ? <ModalCampaign /> : null}
-
       <HeaderUserPage />
       {showMenu ? <MenuMobile /> : null}
       <main>

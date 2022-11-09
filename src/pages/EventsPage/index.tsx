@@ -4,9 +4,10 @@ import "./style.css";
 import { CardUserPage } from "../../components/CardUserPage";
 import { MenuMobile } from "../../components/MenuMobileUser";
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MenuStyled } from "./style";
 import { InfoModalCampaign } from "../../components/InfoModalCampaign";
+import Header from "../../components/Header";
 
 export const EventsPage = () => {
   const {
@@ -17,12 +18,17 @@ export const EventsPage = () => {
     filterDonationAnimals,
     filterDonation,
     showModalInfo,
+    setThisPage,
   } = useContext(GiveContextUserPage);
+
+  useEffect(()=>{
+    setThisPage("Eventos")
+  },[])
 
   return (
     <div>
       {showModalInfo ? <InfoModalCampaign /> : null}
-      <HeaderUserPage />
+      <Header  headerType="type2" />
       {showMenu ? <MenuMobile /> : null}
       <main>
         <SectionEvents>

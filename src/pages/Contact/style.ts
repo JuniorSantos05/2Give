@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../styles/Global/colors";
 
-export const ContactStyle = styled.main`
-    background-color: #FFF0F6;
+export const ContactStyle = styled.div`
 
     .section1{
         height: 292px;
