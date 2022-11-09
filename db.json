@@ -1,0 +1,212 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2022-11-01T20:07:31.872Z",
+  "__export_source": "insomnia.desktop.app:v2022.6.0",
+  "resources": [
+    {
+      "_id": "req_d4dc492f76d846278db3c31e60eaea44",
+      "parentId": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "modified": 1667322653089,
+      "created": 1667314982296,
+      "url": "{{ _.BASE_URL }}/projects",
+      "name": "projects",
+      "description": "",
+      "method": "GET",
+      "body": { "mimeType": "application/json", "text": "" },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_917ee1cf0b7e4f1fa70a8287ae370388"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1667314982296,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "parentId": null,
+      "modified": 1667310978844,
+      "created": 1667310978844,
+      "name": "Api fake projeto-M3-S7",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_a85b5e6c9ccf4b4781d23e43c95c571c",
+      "parentId": "fld_5ebf7f29631f46c7bcf88b1c287f736a",
+      "modified": 1667330551151,
+      "created": 1667314392416,
+      "url": "{{ _.BASE_URL }}/projects",
+      "name": "New project",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"userId\": 2,\n\t\"name\": \"Ajuda para cachorrinhos\",\n\t\"description\": \"Ajuda para cachorrinhos abandonados\",\n\t\"donation\": \"Ração, produtos de limpeza, amor\",\n\t\"image\":\"\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {
+        "type": "bearer",
+        "token": "{% response 'body', 'req_84bd83ef7a414529bfab890ef6ace86b', 'b64::JC5hY2Nlc3NUb2tlbg==::46b', 'when-expired', 60 %}"
+      },
+      "metaSortKey": -1667314392416,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_5ebf7f29631f46c7bcf88b1c287f736a",
+      "parentId": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "modified": 1667314390441,
+      "created": 1667314390441,
+      "name": "auth",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1667314390441,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_84bd83ef7a414529bfab890ef6ace86b",
+      "parentId": "fld_97bacd406ac94248bcccc90b31bc110b",
+      "modified": 1667328416477,
+      "created": 1667312888384,
+      "url": "{{ _.BASE_URL }}/login",
+      "name": "Login",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"fe@gmail.com\",\n\t\"password\": \"54321\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {},
+      "metaSortKey": -1667312888384,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_97bacd406ac94248bcccc90b31bc110b",
+      "parentId": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "modified": 1667314339288,
+      "created": 1667314339288,
+      "name": "user",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1667314339288,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_596ff5ff6019453497b1a723d14cd0ca",
+      "parentId": "fld_97bacd406ac94248bcccc90b31bc110b",
+      "modified": 1667329351984,
+      "created": 1667312549391,
+      "url": "{{ _.BASE_URL }}/register",
+      "name": "Cadastrar",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"tom@gmail.com\",\n\t\"password\": \"54321\",\n\t\"name\": \"Tom\",\n\t\"type\": \"pessoa\"\n}"
+      },
+      "parameters": [],
+      "headers": [{ "name": "Content-Type", "value": "application/json" }],
+      "authentication": {},
+      "metaSortKey": -1667312888334,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_acd550cd96f5b3c9044621dc788478176618aece",
+      "parentId": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "modified": 1667312419888,
+      "created": 1667310978850,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1667310978850,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_acd550cd96f5b3c9044621dc788478176618aece",
+      "parentId": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "modified": 1667310978851,
+      "created": 1667310978851,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_d0b224a04c134487b36ca8ab42b629c2",
+      "parentId": "wrk_3bcd6608a7fa4b02893e5b8f85588a4e",
+      "modified": 1667310978845,
+      "created": 1667310978845,
+      "fileName": "Api fake projeto-M3-S7",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_4a0cfb0f45af4f7396b8dfc063921cd7",
+      "parentId": "env_acd550cd96f5b3c9044621dc788478176618aece",
+      "modified": 1667322306627,
+      "created": 1667312422743,
+      "name": "Dev",
+      "data": { "BASE_URL": "http://localhost:3001" },
+      "dataPropertyOrder": { "&": ["BASE_URL"] },
+      "color": "#da1010",
+      "isPrivate": false,
+      "metaSortKey": 1667312422743,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_7bea5706441945049e51de580087c308",
+      "parentId": "env_acd550cd96f5b3c9044621dc788478176618aece",
+      "modified": 1667322309587,
+      "created": 1667321555732,
+      "name": "Prod",
+      "data": {
+        "BASE_URL": "https://json-server-projeto-front-end.herokuapp.com"
+      },
+      "dataPropertyOrder": { "&": ["BASE_URL"] },
+      "color": "#0c038c",
+      "isPrivate": false,
+      "metaSortKey": 1667321555732,
+      "_type": "environment"
+    }
+  ]
+}

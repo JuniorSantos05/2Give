@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { colors } from "./colors";
 
 export default createGlobalStyle`
 
@@ -10,7 +11,7 @@ export default createGlobalStyle`
 
 html, body{
   font-family: 'Inter', sans-serif;
-  background-color: var(--color-grey-0);
+  background-color: ${colors.colorBackground};
   height: 100vh;
   width: 100vw;
 }
@@ -18,7 +19,7 @@ html, body{
 button{
   cursor: pointer;
   border: none;
-  /* background-color: var(--color-grey-0); */
+
 }
 
 ul, ol, li{
@@ -29,8 +30,6 @@ a{
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6, p, span, li, label{
-  color: var(--color-grey-4);
-}
+
 
 `;
