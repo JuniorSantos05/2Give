@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../styles/Global/colors";
 
-export const SobrePageStyle = styled.main`
-    background-color: #FFF0F6;
+export const SobrePageStyle = styled.div`
 
     .section1{
         height: 694px;

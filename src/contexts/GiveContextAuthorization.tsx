@@ -23,6 +23,7 @@ interface IUserContext {
 
 interface IUserContext {
   loginUser: (data: ILoginUser) => void;
+  user: IUser;
 }
 
 interface IUserProviderProps {
@@ -91,7 +92,7 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
   }
 
   return (
-    <GiveContextAuthorization.Provider value={{ registerUser, loginUser }}>
+    <GiveContextAuthorization.Provider value={{ registerUser, loginUser , user}}>
       {children}
     </GiveContextAuthorization.Provider>
   );

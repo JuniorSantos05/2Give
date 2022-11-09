@@ -1,9 +1,9 @@
+
 import { useContext } from "react";
 import { CardUserPage } from "../../components/CardUserPage";
 import Header from "../../components/Header";
 import { InfoModalCampaign } from "../../components/InfoModalCampaign";
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
-
 import {
   ContainerClass,
   ContainerProjects,
@@ -20,6 +20,7 @@ const HomePage = () => {
     setFilterProjects,
     showModalInfo,
   } = useContext(GiveContextUserPage);
+
 
   return (
     <>

@@ -19,6 +19,8 @@ interface IUserContext {
   handleSearch(event: any): void;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   setFilterProjects: React.Dispatch<React.SetStateAction<string>>;
+  thisPage: string;
+  setThisPage: React.Dispatch<React.SetStateAction<string>>
 }
 
 interface IUserProviderProps {
@@ -48,6 +50,7 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
   const [filterProjects, setFilterProjects] = useState("");
   const [modalProject, setModalProject] = useState([] as IProjects[]);
   const [search, setSearch] = useState("");
+  const [thisPage, setThisPage] = useState("")
 
   console.log(projects);
   useEffect(() => {
@@ -119,6 +122,8 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
         handleSearch,
         setSearch,
         setFilterProjects,
+        thisPage,
+        setThisPage,
       }}
     >
       {children}
