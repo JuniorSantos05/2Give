@@ -21,6 +21,9 @@ interface IUserContext {
   setShowModalInfo: React.Dispatch<React.SetStateAction<boolean>>;
   modalProject: IProjects[];
   showProject(id: any): Promise<void>;
+  thisPage: string;
+  setThisPage: React.Dispatch<React.SetStateAction<string>>
+
 }
 
 interface IUserProviderProps {
@@ -49,6 +52,7 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
   const [projects, setProjects] = useState([] as IProjects[]);
   const [filterProjects, setFilterProjects] = useState("All");
   const [modalProject, setModalProject] = useState([] as IProjects[]);
+  const [thisPage, setThisPage] = useState("")
 
   useEffect(() => {
     async function getProjects() {
@@ -135,6 +139,8 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
         setShowModalInfo,
         modalProject,
         showProject,
+        thisPage,
+        setThisPage,
       }}
     >
       {children}

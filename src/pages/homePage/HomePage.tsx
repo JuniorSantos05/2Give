@@ -1,6 +1,7 @@
 import { AxiosError } from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CardProject from "../../components/cardProject/CardProject";
+import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import Api from "../../services/api";
 import {
   ContainerClass,
@@ -30,6 +31,8 @@ const HomePage = () => {
   const [projects, setProjects] = useState([] as iProjects[]);
   const [filteredProjects, setFilteredProjects] = useState("");
   const [search, setSearch] = useState("");
+  const { setThisPage } = useContext(GiveContextUserPage);
+
 
   const showProjects = projects.filter((project) =>
     filteredProjects === ""
@@ -50,6 +53,9 @@ const HomePage = () => {
         console.log(requestError);
       }
     })();
+    
+    setThisPage("Home");
+    
   }, []);
 
   function handleSearch(event: any) {

@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { colors } from "../../styles/Global/colors";
 
-export const HeaderStyle = styled.header`
+export const HeaderStyle = styled.div`
     width: 100%;
     height: 92px;
+
     background-color: ${colors.colorBackground};
     box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
+    position: sticky;
     
     display: flex;
+    top: 0;
     
     header{
         width: 90%;
@@ -63,9 +66,6 @@ export const NavStyle = styled.nav`
     align-items: center;
     gap: 39px;
 
-    #active{
-        color: ${colors.colorPrimary};
-    }
 
     a{
         color: black;
