@@ -7,14 +7,8 @@ import { FlexContainer } from "../../styles/FlexContainer";
 import { Button } from "../../components/Button";
 import { LinkBack, LinkLogin } from "../../components/Link/styles";
 import { Input } from "../../components/Input";
-
-export interface IRegisterForm {
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  imagem: string;
-}
+import { GiveContext, IRegisterForm } from "../../contexts/GiveContextRegister";
+import { useContext } from "react";
 
 const Register = () => {
   const {
@@ -25,14 +19,11 @@ const Register = () => {
     resolver: yupResolver(schemaRegister),
   });
 
-  const dataRegister = (data: IRegisterForm): any => {
-    console.log("oi");
-    console.log(data);
-  };
+  const { registerUser } = useContext(GiveContext);
 
   return (
     <>
-      <RegisterForm onSubmit={handleSubmit(dataRegister)}>
+      <RegisterForm onSubmit={handleSubmit(registerUser)}>
         <header>
           <figure>
             <img src={Logo} alt="Logo 2Give" />
@@ -47,9 +38,8 @@ const Register = () => {
             register={register}
             error={errors.username}
             label="Nome"
-            id="username"
+            name="username"
             placeholder="Digite seu nome"
-            autoComplete="off"
           />
 
           <Input
@@ -57,9 +47,8 @@ const Register = () => {
             register={register}
             error={errors.email}
             label="Email"
-            id="email"
+            name="email"
             placeholder="Digite seu email"
-            autoComplete="off"
           />
 
           <Input
@@ -67,9 +56,8 @@ const Register = () => {
             register={register}
             error={errors.password}
             label="Senha"
-            id="password"
+            name="password"
             placeholder="Digite sua senha"
-            autoComplete="off"
           />
 
           <Input
@@ -77,9 +65,8 @@ const Register = () => {
             register={register}
             error={errors.confirmPassword}
             label="Confirmar senha"
-            id="confirmPassword"
+            name="confirmPassword"
             placeholder="Digite sua senha"
-            autoComplete="off"
           />
 
           <Input
@@ -87,23 +74,22 @@ const Register = () => {
             register={register}
             error={errors.imagem}
             label="Imagem de perfil"
-            id="imagem"
+            name="imagem"
             placeholder="Adicione uma URL"
-            autoComplete="off"
           />
 
-          {/* <Button
-            type="submit"
-            btnStyle="btnPrimary"
-            onClick={() => dataRegister}>
-            Registrar
-          </Button> */}
+          <FlexContainer
+            display="flex"
+            flexDirection="column"
+            alignItems="center">
+            <Button type="submit" btnStyle="btnPrimary">
+              Registrar
+            </Button>
 
-          <button type="submit"> Registrar</button>
+            <span>Já é cadastrado?</span>
 
-          <span>Já é cadastrado?</span>
-
-          <LinkLogin to="logar">Logar</LinkLogin>
+            <LinkLogin to="/login">Logar</LinkLogin>
+          </FlexContainer>
         </FlexContainer>
       </RegisterForm>
     </>

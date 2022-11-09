@@ -1,10 +1,10 @@
 export const colors = {
   // Primary Pallete
-  colorPrimary:     '#F0386B',
-  colorPrimarySoft: '#FF5376',
-  colorSecundary:   '#6B2D5C',
-  colorBackgroud:   '#ffe3e3',
 
+  colorPrimary: "#F0386B",
+  colorPrimarySoft: "#FF5376",
+  colorSecundary: "#6B2D5C",
+  colorBackgroud: "#ffe3e3",
 
   // Grey Scale Pallete
   colorGrey0: "#F8F9FA",
@@ -14,8 +14,8 @@ export const colors = {
   colorGrey4: "#121214",
 
   // Feedback Pallete
-  colorSucess:      "#3FE864",
-  colorNegative:    "#DC3545",
-  colorWarning:     "#FFAB2F",
+  colorSucess: "#3FE864",
+  colorNegative: "#DC3545",
+  colorWarning: "#FFAB2F",
   colorInformation: "#155BCB",
 };

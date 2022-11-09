@@ -13,5 +13,5 @@ export const schemaRegister = yup.object().shape({
     .required("Senha é obrigatória"),
   confirmPassword: yup
     .string()
-    .oneOf([yup.ref("password")], "Confirmação de senha incorreta!"),
+    .oneOf([yup.ref("password")], "Confirmação de senha nescessário!"),
 });
