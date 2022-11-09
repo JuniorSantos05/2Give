@@ -12,7 +12,7 @@ export const Contact = ()=>{
     const { setThisPage } = useContext(GiveContextUserPage);
 
     useEffect(()=>{
-        setThisPage("Contact")
+        setThisPage("Contato")
     },[])
 
     return(

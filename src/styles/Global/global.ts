@@ -13,7 +13,6 @@ html, body{
   font-family: 'Inter', sans-serif;
   background-color: ${colors.colorBackground};
   min-height: 100vh;
-
 }
 
 button{

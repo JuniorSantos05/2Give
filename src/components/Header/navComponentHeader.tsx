@@ -38,7 +38,7 @@ function NavComponentHeader({headerType}:IHeader){
                             : { backgroundColor: "var(--grey-2)" }
                     }>Sobre nós</h4>
                 </Link>
-                <Link to={"contact"}>
+                <Link to={"/contact"}>
                     <h4 style={
                         thisPage === "Contato"
                             ? { color: "#F0386B" }
