@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { colors } from "../../styles/Global/colors";
 
+
 export const LinkBack = styled(Link)`
   padding: 6px 20px;
   border-radius: 3px;

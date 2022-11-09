@@ -14,4 +14,5 @@ export const ButtonStyled = styled.button<ITypographyProps>`
   &:disabled {
     filter: opacity(0.7);
   }
+
 `;

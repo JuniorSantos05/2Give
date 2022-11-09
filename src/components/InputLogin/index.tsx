@@ -1,5 +1,5 @@
-import { InputHTMLAttributes, useContext, useState } from "react";
-import { FieldError, UseFormRegister } from "react-hook-form";
+import { FieldError, UseFormRegister} from "react-hook-form";
+import { InputHTMLAttributes } from "react";
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -10,9 +10,9 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = ({
   label,
-  error,
-  register,
   name,
+  register,
+  error,
   ...rest
 }: IInputProps) => {
   return (

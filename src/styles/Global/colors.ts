@@ -1,5 +1,6 @@
 export const colors = {
   // Primary Pallete
+
   colorPrimary: "#F0386B",
   colorPrimarySoft: "#FF5376",
   colorSecundary: "#6B2D5C",
