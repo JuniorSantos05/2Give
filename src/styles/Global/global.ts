@@ -12,8 +12,8 @@ export default createGlobalStyle`
 html, body{
   font-family: 'Inter', sans-serif;
   background-color: ${colors.colorBackground};
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+
 }
 
 button{
