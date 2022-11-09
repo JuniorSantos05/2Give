@@ -19,13 +19,13 @@ export const LandingPage = () => {
         <nav>
           <ul>
             <li>
-              <Link to={""}>Home</Link>
+              <Link to={"/homePage"}>Home</Link>
             </li>
             <li>
-              <Link to={""}>Sobre nós</Link>
+              <Link to={"about"}>Sobre nós</Link>
             </li>
             <li>
-              <Link to={""}>Contato</Link>
+              <Link to={"/contact"}>Contato</Link>
             </li>
           </ul>
           <button className="btn">Login</button>
@@ -59,7 +59,7 @@ export const LandingPage = () => {
         />
       </ContentStyle>
       <FooterStyle>
-        <Link to={""}>
+        <Link to={"/homePage"}>
             <img src={Scroll} alt="mouse com seta para rolagem" />
         </Link>
       </FooterStyle>
