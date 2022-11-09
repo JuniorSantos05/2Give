@@ -1,9 +1,8 @@
-import "./App.css";
 import Global from "./styles/Global/global";
 import RoutesMain from "./routes";
 import { ToastContainer } from "react-toastify";
-//import GiveProvider from "./contexts/GiveContextUserPage";
-import GiveProvider from "./contexts/GiveContextLogin";
+import GiveProviderAuth from "./contexts/GiveContextAuthorization";
+import GiveProviderUser from "./contexts/GiveContextUserPage";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -11,9 +10,11 @@ function App() {
     <>
       <ToastContainer />
       <Global />
-      <GiveProvider>
-        <RoutesMain />
-      </GiveProvider>
+      <GiveProviderAuth>
+        <GiveProviderUser>
+          <RoutesMain />
+        </GiveProviderUser>
+      </GiveProviderAuth>
     </>
   );
 }

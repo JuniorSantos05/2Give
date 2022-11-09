@@ -1,13 +1,16 @@
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/Logo.svg"
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterForm } from "../../styles/RegisterForm";
-import { schemaRegister } from "./validation";
+import { formSchema } from "../../schema/schemaRegister";
 import { FlexContainer } from "../../styles/FlexContainer";
 import { Button } from "../../components/Button";
 import { LinkBack, LinkLogin } from "../../components/Link/styles";
 import { Input } from "../../components/Input";
-import { GiveContext, IRegisterForm } from "../../contexts/GiveContextRegister";
+import {
+  GiveContextAuthorization,
+  IRegisterForm,
+} from "../../contexts/GiveContextAuthorization";
 import { useContext } from "react";
 
 const Register = () => {
@@ -16,17 +19,17 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IRegisterForm>({
-    resolver: yupResolver(schemaRegister),
+    resolver: yupResolver(formSchema),
   });
 
-  const { registerUser } = useContext(GiveContext);
+  const { registerUser } = useContext(GiveContextAuthorization);
 
   return (
     <>
       <RegisterForm onSubmit={handleSubmit(registerUser)}>
         <header>
           <figure>
-            <img src={Logo} alt="Logo 2Give" />
+            <Logo/>
           </figure>
           <LinkBack to="register">Voltar</LinkBack>
         </header>
@@ -81,7 +84,8 @@ const Register = () => {
           <FlexContainer
             display="flex"
             flexDirection="column"
-            alignItems="center">
+            alignItems="center"
+          >
             <Button type="submit" btnStyle="btnPrimary">
               Registrar
             </Button>
