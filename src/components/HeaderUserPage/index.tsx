@@ -3,9 +3,12 @@ import StylerHeaderUser from "./style";
 import { AiOutlineMenu } from "react-icons/ai";
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { useContext } from "react";
+import { GiveContextAuthorization } from "../../contexts/GiveContextAuthorization";
 
 export const HeaderUserPage = () => {
   const { showMenu, setShowMenu } = useContext(GiveContextUserPage);
+
+  const { userLogout } = useContext(GiveContextAuthorization);
 
   return (
     <StylerHeaderUser>
@@ -14,8 +17,7 @@ export const HeaderUserPage = () => {
         <p
           onClick={() => {
             setShowMenu(false);
-          }}
-        >
+          }}>
           X
         </p>
       ) : (
@@ -38,7 +40,7 @@ export const HeaderUserPage = () => {
             <Link to={"/events"}>Eventos</Link>
           </li>
         </ul>
-        <button>Sair</button>
+        <button onClick={userLogout}>Sair</button>
       </nav>
     </StylerHeaderUser>
   );
