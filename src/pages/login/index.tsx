@@ -35,7 +35,7 @@ const Login = () => {
           <figure>
             <img src={Logo} alt="Logo 2Give" />
           </figure>
-          <LinkBack to="/register">Voltar</LinkBack>
+          <LinkBack to="/">Voltar</LinkBack>
         </header>
         <FlexContainer
           className="content"
@@ -63,7 +63,6 @@ const Login = () => {
                 label="Senha"
                 placeholder="Senha"
               />
-
           <FlexContainer
             display="flex"
             flexDirection="column"
@@ -73,7 +72,7 @@ const Login = () => {
               Login
             </Button>
             <span>Ainda não é cadastrado?</span>
-            <LinkLogin to="register">
+            <LinkLogin to="/register">
               Cadastrar
             </LinkLogin>
           </FlexContainer>
