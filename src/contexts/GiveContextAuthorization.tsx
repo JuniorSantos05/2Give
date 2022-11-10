@@ -43,6 +43,7 @@ export interface IUser {
   name: string;
   email: string;
   type: string;
+  image: string;
 }
 
 interface IResponse {
@@ -78,6 +79,8 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
       Toastify.erro(requestError.response?.data);
     }
   }
+
+  console.log(user);
 
   async function loginUser(data: ILoginUser) {
     try {

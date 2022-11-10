@@ -13,14 +13,13 @@ main {
 ul {
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 @media (max-width: 615px) {
 
     ul {
 
-        justify-content: flex-start;
 
         overflow-x: auto;
     }

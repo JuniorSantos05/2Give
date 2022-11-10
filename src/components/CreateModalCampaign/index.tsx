@@ -7,9 +7,11 @@ import { StyleModalCampaign } from "./style";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { GiveContextAuthorization } from "../../contexts/GiveContextAuthorization";
 
 export const ModalCampaign = () => {
   const { setCloseModal, createProjects } = useContext(GiveContextUserPage);
+  const { user } = useContext(GiveContextAuthorization);
 
   const formSchemaCampaign = yup.object().shape({
     name: yup.string().required("Campo Obrigatório"),
@@ -28,10 +30,16 @@ export const ModalCampaign = () => {
     resolver: yupResolver(formSchemaCampaign),
   });
 
+  function sendId(data: IProjects) {
+    data.userId = Number(user.id);
+    createProjects(data);
+  }
+
   return (
     <StyleModalCampaign>
-      <form onSubmit={handleSubmit(createProjects)}>
-        <span>3</span>
+      <form onSubmit={handleSubmit(sendId)}>
+        <span {...register("userId")}>{user.name}</span>
+
         <div>
           <h2>Criar Campanha</h2>
           <p onClick={() => setCloseModal(false)}>X</p>
