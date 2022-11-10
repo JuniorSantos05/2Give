@@ -1,4 +1,4 @@
-import Logo from "../../assets/Logo.svg"
+import Logo from "../../assets/Logo.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterForm } from "../../styles/RegisterForm";
@@ -29,9 +29,9 @@ const Register = () => {
       <RegisterForm onSubmit={handleSubmit(registerUser)}>
         <header>
           <figure>
-            <Logo/>
+            <img src={Logo} alt="logo" />
           </figure>
-          <LinkBack to="register">Voltar</LinkBack>
+          <LinkBack to="/login">Voltar</LinkBack>
         </header>
 
         <FlexContainer flexDirection="column" media="responsive">
@@ -84,8 +84,7 @@ const Register = () => {
           <FlexContainer
             display="flex"
             flexDirection="column"
-            alignItems="center"
-          >
+            alignItems="center">
             <Button type="submit" btnStyle="btnPrimary">
               Registrar
             </Button>

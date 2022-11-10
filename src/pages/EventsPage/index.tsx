@@ -14,20 +14,19 @@ export const EventsPage = () => {
     useContext(GiveContextUserPage);
 
   const {
-    showMenu,
-    showModalInfo,
+    // showMenu,
+    // showModalInfo,
     setThisPage,
   } = useContext(GiveContextUserPage);
 
-
-  useEffect(()=>{
-    setThisPage("Eventos")
-  },[])
+  useEffect(() => {
+    setThisPage("Eventos");
+  }, []);
 
   return (
     <div>
       {showModalInfo ? <InfoModalCampaign /> : null}
-      <Header  headerType="type2" />
+      <Header headerType="type2" />
       {showMenu ? <MenuMobile /> : null}
       <main>
         <SectionEvents>

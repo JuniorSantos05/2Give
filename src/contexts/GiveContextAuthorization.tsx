@@ -1,4 +1,4 @@
-import { AxiosError } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
 import { createContext, ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toastify from "../components/Toastify";
@@ -44,13 +44,14 @@ export interface IUser {
 
 interface IResponse {
   user: IUser;
-  token: string;
+  accessToken: string;
 }
 
-export const GiveContextAuthorization = createContext<IUserContext>({} as IUserContext);
+export const GiveContextAuthorization = createContext<IUserContext>(
+  {} as IUserContext
+);
 
 const GiveProviderAuth = ({ children }: IUserProviderProps) => {
-  const [currentTheme, setCurrentTheme] = useState("light");
   const [user, setUser] = useState<IUser>({} as IUser);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -68,31 +69,32 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
 
   async function loginUser(data: ILoginUser) {
     try {
-      await Api
-        .post<IResponse>(
-          //REMOVIDO O HTTPS
-          "/login",
-          data
-        )
-        .then((res) => {
-          const { user: userResponse, token } = res.data;
-          setUser(userResponse);
-          res.status === 200
-            ? toast.success("Login realizado com sucesso!")
-            : toast.error("Ops! Algo deu errado.");
-          window.localStorage.setItem("@2Give:token", token);
-          console.log(res);
-          setTimeout(() => {
-            navigate(`/dashboard`, { replace: true });
-          }, 500);
-        });
+      await Api.post<IResponse>(
+        //REMOVIDO O HTTPS
+        "/login",
+        data
+      ).then((res) => {
+        const { user: userResponse, accessToken } = res.data;
+        setUser(userResponse);
+        console.log(accessToken);
+        console.log(res);
+        res.status === 200
+          ? toast.success("Login realizado com sucesso!")
+          : toast.error("Ops! Algo deu errado.");
+        window.localStorage.setItem("@2Give:token", accessToken);
+        console.log(res);
+        setTimeout(() => {
+          navigate(`/userPage`, { replace: true });
+        }, 500);
+      });
     } catch (err) {
       err ? toast.error("Ops! Algo deu errado.") : console.log();
     }
   }
 
   return (
-    <GiveContextAuthorization.Provider value={{ registerUser, loginUser , user}}>
+    <GiveContextAuthorization.Provider
+      value={{ registerUser, loginUser, user }}>
       {children}
     </GiveContextAuthorization.Provider>
   );

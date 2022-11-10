@@ -23,10 +23,11 @@ export const FlexContainer = styled.div<IFlexContainerProps>`
   max-width: 768px;
   margin: 0 auto;
   border-radius: 16px;
+  display: flex;
 
   padding: 10px;
   background-color: ${colors.colorGrey0};
-  display: ${(props) => props.display || "block"};
+  display: ${(props) => props.display};
   flex-direction: ${(props) => props.flexDirection || "row"};
   align-items: ${(props) => props.alignItems || "flex-start"};
   justify-content: ${(props) => props.justifyContent || "flex-start"};
