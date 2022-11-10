@@ -35,7 +35,7 @@ const Login = () => {
           <figure>
             <img src={Logo} alt="Logo 2Give" />
           </figure>
-          <LinkBack to="/">Voltar</LinkBack>
+          <LinkBack to="/register">Voltar</LinkBack>
         </header>
         <FlexContainer
           className="content"

@@ -20,4 +20,8 @@ export const LinkLogin = styled(Link)`
   &:disabled {
     filter: opacity(0.7);
   }
+
+  :hover{
+    background-color: ${colors.colorPrimary};
+  }
 `;

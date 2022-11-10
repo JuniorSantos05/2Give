@@ -40,10 +40,10 @@ export interface ILoginUser {
 
 export interface IUser {
   id: string;
-  name: string;
+  username: string;
   email: string;
   type: string;
-  image: string;
+  imagem: string;
 }
 
 interface IResponse {

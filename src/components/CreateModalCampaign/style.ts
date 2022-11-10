@@ -29,16 +29,18 @@ export const StyleModalCampaign = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-height: 650px;
+    overflow-y: scroll;
 
     background-color: white;
 
     position: relative;
 
-    width: 450px;
-    min-width: 360px;
+    max-width: 450px;
 
     gap: 20px;
     margin: 8% auto;
+    margin-top: 100px;
     padding: 40px 20px;
 
     border-radius: 8px;
@@ -47,6 +49,10 @@ export const StyleModalCampaign = styled.div`
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 
     transition: all 0.3s;
+
+    h2{
+      margin-top: 30px;
+    }
 
     span {
       display: none;
@@ -62,10 +68,13 @@ export const StyleModalCampaign = styled.div`
       display: flex;
       flex-direction: column;
 
+      width: 100%;
+
       gap: 8px;
 
       input {
         padding: 12px 5px;
+        width: 100%;
 
         border-radius: 6px;
       }
@@ -104,6 +113,20 @@ export const StyleModalCampaign = styled.div`
       :hover {
         background-color: ${colors.colorPrimarySoft};
       }
+    }
+
+    ::-webkit-scrollbar-track{
+	    background-color: white;
+    }
+
+    ::-webkit-scrollbar{
+	    background-color:  white;
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+	    background-color: ${colors.colorPrimary};
+
     }
   }
 `;

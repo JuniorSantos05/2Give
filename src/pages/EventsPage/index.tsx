@@ -1,8 +1,7 @@
-import { HeaderUserPage } from "../../components/HeaderUserPage";
 import { SectionEvents } from "../UserPage/style";
 import "./style.css";
 import { CardUserPage } from "../../components/CardUserPage";
-import { MenuMobile } from "../../components/MenuMobileUser";
+
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { useContext, useEffect } from "react";
 import { MenuStyled } from "./style";
@@ -27,7 +26,6 @@ export const EventsPage = () => {
     <div>
       {showModalInfo ? <InfoModalCampaign /> : null}
       <Header headerType="type2" />
-      {showMenu ? <MenuMobile /> : null}
       <main>
         <SectionEvents>
           <nav>

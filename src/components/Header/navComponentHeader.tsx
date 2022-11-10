@@ -52,9 +52,16 @@ function NavComponentHeader({ headerType }: IHeader) {
           </h4>
         </Link>
         {user?.id ? (
-          <button onClick={handlelogOut}>
-            <h4>Sair</h4>
-          </button>
+          <>
+            <button onClick={handlelogOut}>
+              <h4>Sair</h4>
+            </button>
+            <Link to={"/userPage"}>
+              <button>
+                <h4>Dashboard</h4>
+              </button>
+            </Link>
+          </>
         ) : (
           <>
             <Link to={"/login"}>

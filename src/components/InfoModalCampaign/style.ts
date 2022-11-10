@@ -32,6 +32,7 @@ export const StyleInfoCampaign = styled.div`
 
     position: relative;
 
+
     transition: all 0.5s;
 
     @media (max-width: 665px) {

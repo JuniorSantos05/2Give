@@ -31,14 +31,13 @@ export const ModalCampaign = () => {
   });
 
   function sendId(data: IProjects) {
-    data.userId = Number(user.id);
+    data.userId = Number(user?.id);
     createProjects(data);
   }
 
   return (
     <StyleModalCampaign>
       <form onSubmit={handleSubmit(sendId)}>
-        <span {...register("userId")}>{user.name}</span>
 
         <div>
           <h2>Criar Campanha</h2>

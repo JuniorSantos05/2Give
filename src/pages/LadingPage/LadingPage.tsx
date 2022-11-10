@@ -52,7 +52,7 @@ export const LandingPage = () => {
             Crie e participe de eventos que podem mudar o mundo de outras
             pessoas. O mundo precisa de mais soliedariedade, seja um motivador!
           </p>
-          <Link to={""}>
+          <Link to={"/register"}>
             <button>Criar projeto</button>
           </Link>
         </main>

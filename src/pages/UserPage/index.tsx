@@ -1,22 +1,26 @@
 import { DivCampaign, SectionEvents, UserSection } from "./style";
 import "./style.css";
-import { CardUserPage } from "../../components/CardUserPage";
-import { MenuMobile } from "../../components/MenuMobileUser";
+
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { useContext, useEffect } from "react";
 import { ModalCampaign } from "../../components/CreateModalCampaign";
 import { InfoModalCampaign } from "../../components/InfoModalCampaign";
 import Header from "../../components/Header";
 import { GiveContextAuthorization } from "../../contexts/GiveContextAuthorization";
+import { ProjectsUser } from "./proctsUser";
+
 
 export const UserPage = () => {
-  const { showMenu, closeModal, setCloseModal, showModalInfo, setThisPage } =
+  const {  closeModal, setCloseModal, showModalInfo, setThisPage } =
     useContext(GiveContextUserPage);
   const { user } = useContext(GiveContextAuthorization);
 
+  console.log(user)
   useEffect(() => {
     setThisPage("Dashboard");
   }, []);
+
+  console.log(user)
 
   return (
     <div>
@@ -24,14 +28,14 @@ export const UserPage = () => {
 
       {closeModal ? <ModalCampaign /> : null}
       <Header headerType="type2" />
-      {showMenu ? <MenuMobile /> : null}
       <main>
         <UserSection>
           <figure>
-            <img src={user.image} alt="foto de perfil" />
+            
+            <img src={user?.imagem} alt="foto de perfil" />
           </figure>
           <div>
-            <h2>{user.name}</h2>
+            <h2>{user?.username}</h2>
           </div>
         </UserSection>
         <DivCampaign>
@@ -41,7 +45,7 @@ export const UserPage = () => {
         <SectionEvents>
           <h2>Meus Eventos</h2>
           <ul>
-            <CardUserPage />
+            <ProjectsUser />
           </ul>
         </SectionEvents>
       </main>

@@ -1,5 +1,5 @@
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CardUserPage } from "../../components/CardUserPage";
 import Header from "../../components/Header";
 import { InfoModalCampaign } from "../../components/InfoModalCampaign";
@@ -19,7 +19,12 @@ const HomePage = () => {
     projectsFiltered,
     setFilterProjects,
     showModalInfo,
+    setThisPage,
   } = useContext(GiveContextUserPage);
+
+  useEffect(()=>{
+    setThisPage("Home")
+  },[])
 
 
   return (

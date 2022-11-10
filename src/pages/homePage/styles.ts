@@ -50,6 +50,7 @@ export const MainSection = styled.section`
         max-width: 365px;
         border: solid 1px #b0b0b08a;
         border-radius: 10px;
+        padding-left: 10px;
       }
 
       button {
@@ -109,6 +110,11 @@ export const FalseButton = styled.li`
 
 export const SectionProjects = styled.section`
   padding: 0 101px;
+
+  @media screen and (max-width: 835px) {
+    padding: 0px;
+    margin: 0 5%;
+  }
 `;
 
 export const ContainerProjects = styled.ul`
