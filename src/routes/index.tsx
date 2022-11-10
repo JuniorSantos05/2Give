@@ -1,12 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import HomePage from "../pages/homePage/HomePage";
+import HomePage from "../pages/HomePage/HomePage";
 import { EventsPage } from "../pages/EventsPage";
 import { UserPage } from "../pages/UserPage";
-import Register from "../pages/Register";
-import Login from "../pages/login";
-import { LandingPage } from "../pages/LadingPage/LadingPage";
-import { Contact } from "../pages/Contact";
-import { SobrePage } from "../pages/Sobre";
+import Register from "../pages/RegisterPage";
+import Login from "../pages/LoginPage";
+import { LandingPage } from "../pages/LandingPage/LadingPage";
+import { Contact } from "../pages/ContactPage";
+import { SobrePage } from "../pages/AboutPage";
 import ProtectedRoutes from "../components/ProtectedRoutes";
 
 const RoutesMain = () => {

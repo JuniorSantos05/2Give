@@ -28,7 +28,4 @@ ul, ol, li{
 a{
   text-decoration: none;
 }
-
-
-
 `;

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { colors } from "../../styles/Global/colors";
 
 interface ITypographyProps {
@@ -15,4 +15,7 @@ export const ButtonStyled = styled.button<ITypographyProps>`
     filter: opacity(0.7);
   }
 
+  &:hover {
+    opacity: 0.9;
+  }
 `;
