@@ -10,17 +10,18 @@ export const UserSection = styled.section`
   gap: 20px;
 
   figure {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
 
     display: flex;
     justify-content: center;
 
+    border: 5px solid ${colors.colorPrimary};
     border-radius: 50%;
-    border: 1px solid black;
 
     img {
       width: 100%;
+      border-radius: 50%;
     }
   }
 

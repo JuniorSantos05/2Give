@@ -40,6 +40,7 @@ export interface IUser {
   name: string;
   email: string;
   type: string;
+  image: string;
 }
 
 interface IResponse {
@@ -47,7 +48,9 @@ interface IResponse {
   token: string;
 }
 
-export const GiveContextAuthorization = createContext<IUserContext>({} as IUserContext);
+export const GiveContextAuthorization = createContext<IUserContext>(
+  {} as IUserContext
+);
 
 const GiveProviderAuth = ({ children }: IUserProviderProps) => {
   const [currentTheme, setCurrentTheme] = useState("light");
@@ -66,33 +69,35 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
     }
   }
 
+  console.log(user);
+
   async function loginUser(data: ILoginUser) {
     try {
-      await Api
-        .post<IResponse>(
-          //REMOVIDO O HTTPS
-          "/login",
-          data
-        )
-        .then((res) => {
-          const { user: userResponse, token } = res.data;
-          setUser(userResponse);
-          res.status === 200
-            ? toast.success("Login realizado com sucesso!")
-            : toast.error("Ops! Algo deu errado.");
-          window.localStorage.setItem("@2Give:token", token);
-          console.log(res);
-          setTimeout(() => {
-            navigate(`/dashboard`, { replace: true });
-          }, 500);
-        });
+      await Api.post<IResponse>(
+        //REMOVIDO O HTTPS
+        "/login",
+        data
+      ).then((res) => {
+        const { user: userResponse, token } = res.data;
+        setUser(userResponse);
+        res.status === 200
+          ? toast.success("Login realizado com sucesso!")
+          : toast.error("Ops! Algo deu errado.");
+        window.localStorage.setItem("@2Give:token", token);
+        console.log(res);
+        setTimeout(() => {
+          navigate(`/userPage`, { replace: true });
+        }, 500);
+      });
     } catch (err) {
       err ? toast.error("Ops! Algo deu errado.") : console.log();
     }
   }
 
   return (
-    <GiveContextAuthorization.Provider value={{ registerUser, loginUser , user}}>
+    <GiveContextAuthorization.Provider
+      value={{ registerUser, loginUser, user }}
+    >
       {children}
     </GiveContextAuthorization.Provider>
   );

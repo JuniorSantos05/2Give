@@ -20,7 +20,7 @@ interface IUserContext {
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   setFilterProjects: React.Dispatch<React.SetStateAction<string>>;
   thisPage: string;
-  setThisPage: React.Dispatch<React.SetStateAction<string>>
+  setThisPage: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface IUserProviderProps {
@@ -50,9 +50,8 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
   const [filterProjects, setFilterProjects] = useState("");
   const [modalProject, setModalProject] = useState([] as IProjects[]);
   const [search, setSearch] = useState("");
-  const [thisPage, setThisPage] = useState("")
+  const [thisPage, setThisPage] = useState("");
 
-  console.log(projects);
   useEffect(() => {
     async function getProjects() {
       try {
@@ -67,11 +66,13 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
 
   async function createProjects(data: IProjects) {
     try {
-      const response = await Api.post("/projects", data);
+      const token = localStorage.getItem("@2Give:token");
 
-      const { projects: projectsResponse } = response.data;
+      await Api.post("/projects", data, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-      setProjects(projectsResponse);
+      setProjects([...projects, data]);
 
       toast.success("Nova Campanha criada com sucesso");
     } catch (error) {
