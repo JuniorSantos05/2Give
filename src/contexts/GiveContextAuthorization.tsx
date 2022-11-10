@@ -1,5 +1,5 @@
-import { AxiosError } from "axios";
-import { createContext, ReactNode, useState } from "react";
+import { AxiosError, AxiosResponse } from "axios";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toastify from "../components/Toastify";
 import { toast } from "react-toastify";
@@ -23,7 +23,10 @@ interface IUserContext {
 
 interface IUserContext {
   loginUser: (data: ILoginUser) => void;
-  user: IUser;
+  user: IUser | null;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  userLogout: () => void;
 }
 
 interface IUserProviderProps {
@@ -45,7 +48,7 @@ export interface IUser {
 
 interface IResponse {
   user: IUser;
-  token: string;
+  accessToken: string;
 }
 
 export const GiveContextAuthorization = createContext<IUserContext>(
@@ -53,10 +56,18 @@ export const GiveContextAuthorization = createContext<IUserContext>(
 );
 
 const GiveProviderAuth = ({ children }: IUserProviderProps) => {
-  const [currentTheme, setCurrentTheme] = useState("light");
-  const [user, setUser] = useState<IUser>({} as IUser);
+  const [user, setUser] = useState<IUser | null>(null);
   const [loading, setLoading] = useState(true);
+  const tokenUser = localStorage.getItem("@2Give:token");
+  const userID = localStorage.getItem("@2Give:userID");
   const navigate = useNavigate();
+
+  const userLogout = () => {
+    setUser(null);
+    localStorage.removeItem("@2Give:token");
+    localStorage.removeItem("@2Give:userID");
+    navigate("/");
+  };
 
   async function registerUser(dataRegister: IRegisterForm): Promise<void> {
     try {
@@ -78,12 +89,13 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
         "/login",
         data
       ).then((res) => {
-        const { user: userResponse, token } = res.data;
+        const { user: userResponse, accessToken } = res.data;
         setUser(userResponse);
         res.status === 200
           ? toast.success("Login realizado com sucesso!")
           : toast.error("Ops! Algo deu errado.");
-        window.localStorage.setItem("@2Give:token", token);
+        window.localStorage.setItem("@2Give:token", accessToken);
+        window.localStorage.setItem("@2Give:userID", userResponse.id);
         console.log(res);
         setTimeout(() => {
           navigate(`/userPage`, { replace: true });
@@ -94,10 +106,35 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
     }
   }
 
+  useEffect(() => {
+    async function loadUser() {
+      try {
+        if (tokenUser) {
+          Api.defaults.headers.authorization = `Bearer ${tokenUser}`;
+
+          const { data } = await Api.get(`/users/${userID}`);
+          console.log(data);
+          setUser(data);
+          console.log("oi");
+        }
+      } catch (error) {
+        navigate("/");
+      }
+      setLoading(false);
+    }
+    loadUser();
+  }, []);
+
   return (
     <GiveContextAuthorization.Provider
-      value={{ registerUser, loginUser, user }}
-    >
+      value={{
+        registerUser,
+        loginUser,
+        user,
+        loading,
+        setLoading,
+        userLogout,
+      }}>
       {children}
     </GiveContextAuthorization.Provider>
   );

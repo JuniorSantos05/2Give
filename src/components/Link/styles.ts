@@ -11,10 +11,11 @@ export const LinkBack = styled(Link)`
 `;
 
 export const LinkLogin = styled(Link)`
-  padding: 6px 67px;
+  padding: 8px 67px;
   border-radius: 8px;
   max-width: 400px;
   background-color: #f89cb5;
+  
   color: ${colors.colorGrey0};
   &:disabled {
     filter: opacity(0.7);
