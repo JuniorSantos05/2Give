@@ -38,26 +38,32 @@ const Login = () => {
           <LinkBack to="/">Voltar</LinkBack>
         </header>
         <FlexContainer
+          className="content"
           display="flex"
           flexDirection="column"
-          justifyContent="center">
-          <h1>Login</h1>
-          <FlexContainer media="responsive">
-            <Input
-              name="email"
-              register={register}
-              error={errors.email}
-              label="E-mail"
-              placeholder="e-mail"
-            />
-            <Input
-              name="password"
-              register={register}
-              error={errors.password}
-              label="Senha"
-              placeholder="senha"
-            />
-          </FlexContainer>
+          justifyContent="center"
+          alignItems="center">
+            <FlexContainer
+            className="title"
+            justifyContent="start"
+            alignItems="flex-start">
+              <h1>Login</h1>
+            </FlexContainer>
+              <Input
+                name="email"
+                register={register}
+                error={errors.email}
+                label="E-mail"
+                placeholder="E-mail"
+              />
+              <Input
+                name="password"
+                register={register}
+                error={errors.password}
+                label="Senha"
+                placeholder="Senha"
+              />
+
           <FlexContainer
             display="flex"
             flexDirection="column"
@@ -67,9 +73,11 @@ const Login = () => {
               Login
             </Button>
             <span>Ainda não é cadastrado?</span>
-            <LinkLogin to="register">Cadastrar</LinkLogin>
+            <LinkLogin to="register">
+              Cadastrar
+            </LinkLogin>
           </FlexContainer>
-        </FlexContainer>
+          </FlexContainer>
       </LoginForm>
     </>
   );

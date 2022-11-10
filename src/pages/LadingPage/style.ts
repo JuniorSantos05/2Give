@@ -11,7 +11,7 @@ export const HeaderStyle = styled.header`
     box-shadow: 0px 4px 32px -12px rgba(0, 0, 0, 0.25);
     h1 {
     font-weight: 700;
-    font-size: 38px;
+    font-size: 25px;
     line-height: 45px;
     color: ${colors.colorPrimary};
     cursor: default;
@@ -49,6 +49,8 @@ export const HeaderStyle = styled.header`
     }
     .btn {
     padding: 10px 16px;
+    width: 100%;
+    font-size: 12px;
     border-radius: 8px;
     background-color: ${colors.colorPrimary};
     color: ${colors.colorGrey0};
@@ -56,6 +58,9 @@ export const HeaderStyle = styled.header`
     :hover {
     background-color: ${colors.colorPrimarySoft};
     }
+    }
+    svg{
+        min-width: 20px;
     }
     }
 
@@ -65,6 +70,9 @@ export const HeaderStyle = styled.header`
         }
         .mobile{
             display: none;
+        }
+        h1{
+            font-size: 38px;
         }
     }
 `
@@ -86,6 +94,7 @@ export const ContentStyle = styled.div`
         flex-direction: column;
         gap: 28px;
         max-width: 347px;
+        max-height: 500px !important;
     }
 
     .titlePage{

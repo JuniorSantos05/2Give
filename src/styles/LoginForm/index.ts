@@ -4,6 +4,7 @@ export const LoginForm = styled.form`
   padding: 1.5rem 3rem 1.5rem 3rem;
   min-width: 320px;
 
+
   background-color: #fff0f6;
   color: #f0386b;
   border-radius: 10px;
@@ -13,6 +14,10 @@ export const LoginForm = styled.form`
   gap: 2rem;
 
   margin: 0 auto;
+
+  .content{
+    height: 600px;
+  }
 
   .error {
     color: var(--color-error);
@@ -25,15 +30,31 @@ export const LoginForm = styled.form`
     align-items: center;
   }
 
+  .title{
+    height: 20%;
+  }
+
   h1 {
     text-align: center;
     width: 100%;
   }
 
   input {
-    width: 100%;
-    padding: 0.5rem;
+    min-width: 196px;
+    width: 70%;
+    padding: 0.7rem;
     border: 1px solid #f0386b;
     border-radius: 4px;
+    justify-content: center;
+  }
+
+  
+  label{
+    width: 70%;
+    display: flex;
+  }
+
+  button{
+    padding: 9px 82px;
   }
 `;
