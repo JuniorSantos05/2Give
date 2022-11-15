@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# 2Give
+<p>A 2Give foi criada através do projeto final de front-end da Kenzie Academy , onde o seu objetivo era reunir um grupo de sete pessoas com a intenção de criarem um MVP totalmente do zero.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sabe quando você faz aquela faxina no seu guarda roupa, ou nos brinquedos dos seus filhos e junta uma quantidade de coisas que você gostaria de doar? Qual o primeiro lugar que vem na sua mente? Talvez você já conheça uma ONG ou instituição perto do seu bairro, mas se existisse uma plataforma onde você não só pode encontrar eventos beneficentes,  mas também criar seus próprios  eventos.
 
-## Available Scripts
+Nossa proposta é justamente essa, lá o doador poderia encontrar eventos que mais se identifiquem
+e o donatário poderá especificar os elementos que mais será necessário, por exemplo se trabalham com crianças, idosos, dependentes químicos ou alcoólicos e qual tipo de doação cada uma mais necessita.
+<p/><br>
 
-In the project directory, you can run:
+## 🚀 Principais Tecnologias
+<div>
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /> 
+    <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+    <img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" /> 
+</div><br>
 
-### `yarn start`
+## 📚 Outras bibliotecas 
+<p>Yup</p>
+<p>Hook form</p>
+<p>React router dom</p>
+<p>Axios</p>
+<p>React-toastify</p>
+<p>Json-server</p>
+<p>NextUi</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⚙ Funcionalidades
+<p>✔ Login</p>
+<p>✔ Cadastro</p>
+<p>✔ Criar campanhas</p>
+<p>✔ Ver campanhas</p>
+<p>✔ Proteção de rotas</p>
+<p>✔ Proteção de rota</p>
+<p>✔ Responsividade</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## 💻 Link da página
+https://2-give-app.vercel.app/
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
