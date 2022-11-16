@@ -5,7 +5,10 @@ Sabe quando você faz aquela faxina no seu guarda roupa, ou nos brinquedos dos s
 
 Nossa proposta é justamente essa, lá o doador poderia encontrar eventos que mais se identifiquem
 e o donatário poderá especificar os elementos que mais será necessário, por exemplo se trabalham com crianças, idosos, dependentes químicos ou alcoólicos e qual tipo de doação cada uma mais necessita.
-<p/><br>
+<p/>
+
+## 💻 Link da página
+https://2-give-app.vercel.app/
 
 ## 🚀 Principais Tecnologias
 <div>
@@ -32,7 +35,4 @@ e o donatário poderá especificar os elementos que mais será necessário, por 
 <p>✔ Proteção de rota</p>
 <p>✔ Responsividade</p>
 
-
-## 💻 Link da página
-https://2-give-app.vercel.app/
 
