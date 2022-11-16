@@ -26,13 +26,21 @@ https://2-give-app.vercel.app/
 <p>Json-server</p>
 <p>NextUi</p>
 
-## ⚙ Funcionalidades
+## 🛠 Funcionalidades
 <p>✔ Login</p>
 <p>✔ Cadastro</p>
 <p>✔ Criar campanhas</p>
 <p>✔ Ver campanhas</p>
 <p>✔ Proteção de rotas</p>
-<p>✔ Proteção de rota</p>
 <p>✔ Responsividade</p>
+
+## ⚙ Características
+<ul>
+    <li>State management feito com Context Api e React Hooks.</li>
+    <li>TypeScript utilizado com React.</li>
+    <li>Projeto em equipe utilizandzo o método Scrum.</li>
+    <li>Proteção de rotas com React Router Dom.</li>
+    <li>Criação de fake api (json-server).</li>
+</ul>
 
 
