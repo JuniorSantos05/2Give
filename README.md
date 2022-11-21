@@ -43,4 +43,12 @@ https://2-give-app.vercel.app/
     <li>Criação de fake api (json-server).</li>
 </ul>
 
+## 🌎 Equipe
+    <p>PO - Diogo Soares Peixoto</p>
+    <p>SM - Thaisa Alice Ramalho</p>
+    <p>TL - Hémerson Landim</p>
+    <p>TL - QA - Durval Ribeiro Junior</p>
+    <p>TL - Felipe Noqueira</p>
+    <p>TL - Davi Fernandes</p>
+
 
