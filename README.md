@@ -38,7 +38,7 @@ https://2-give-app.vercel.app/
 <ul>
     <li>State management feito com Context Api e React Hooks.</li>
     <li>TypeScript utilizado com React.</li>
-    <li>Projeto em equipe utilizandzo o método Scrum.</li>
+    <li>Projeto em equipe utilizando o método Scrum.</li>
     <li>Proteção de rotas com React Router Dom.</li>
     <li>Criação de fake api (json-server).</li>
 </ul>
