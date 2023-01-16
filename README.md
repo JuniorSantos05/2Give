@@ -47,7 +47,7 @@ https://2-give-app.vercel.app/
 <p>PO - Diogo Soares Peixoto</p>
 <p>SM - Thaisa Alice Ramalho</p>
 <p>TL - Hémerson Landim</p>
-<p>QA - Durval Ribeiro Junior</p>
+<p>QA - Junior Santos</p>
 <p>QA - Felipe Noqueira</p>
 <p>QA - Davi Fernandes</p>
 
