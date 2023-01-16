@@ -5,7 +5,7 @@ const Toastify = {
   sucess: (message: string) =>
     toast.success(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -16,7 +16,7 @@ const Toastify = {
   erro: (message: any) =>
     toast.error(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -27,7 +27,7 @@ const Toastify = {
   warning: (message: string) =>
     toast.warn(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -38,7 +38,7 @@ const Toastify = {
   info: (message: string) =>
     toast.info(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -49,7 +49,7 @@ const Toastify = {
   default: (message: string) =>
     toast(message, {
       position: "top-right",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

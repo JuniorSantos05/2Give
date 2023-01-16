@@ -19,7 +19,7 @@ export const LandingPage = () => {
         <nav>
           <ul>
             <li>
-              <Link to={"/homePage"}>Home</Link>
+              <Link to={"/homePage"}>Início</Link>
             </li>
             <li>
               <Link to={"about"}>Sobre nós</Link>
@@ -29,10 +29,10 @@ export const LandingPage = () => {
             </li>
           </ul>
           <Link to={"/login"}>
-          <button className="btn">Login</button>
+            <button className="btn">Entrar</button>
           </Link>
           <Link to={"/register"}>
-          <button className="btn">Cadastro</button>
+            <button className="btn">Criar Conta</button>
           </Link>
           <RiMenuFill
             onClick={() => setMenuIsVisible(true)}
@@ -64,7 +64,7 @@ export const LandingPage = () => {
       </ContentStyle>
       <FooterStyle>
         <Link to={"/homePage"}>
-            <img src={Scroll} alt="mouse com seta para rolagem" />
+          <img src={Scroll} alt="mouse com seta para rolagem" />
         </Link>
       </FooterStyle>
     </>

@@ -1,5 +1,7 @@
+import { AxiosError } from "axios";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import Toastify from "../components/Toastify";
 import Api from "../services/api";
 
 interface IUserContext {
@@ -58,7 +60,8 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
         const { data } = await Api.get("/projects");
         setProjects(data);
       } catch (error) {
-        console.log(error);
+        const requestError = error as AxiosError;
+        Toastify.erro(requestError.response?.data);
       }
     }
     getProjects();
@@ -76,8 +79,7 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
 
       toast.success("Nova Campanha criada com sucesso");
     } catch (error) {
-      console.log(error);
-      toast.error("Ops, algo deu errado!");
+      Toastify.erro("Ops, algo deu errado!");
     }
   }
 
@@ -87,7 +89,7 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
       setModalProject(data);
       setShowModalInfo(true);
     } catch (error) {
-      console.log(error);
+      Toastify.erro("Ops, algo deu errado!");
     }
   }
 
@@ -125,8 +127,7 @@ const GiveProviderUser = ({ children }: IUserProviderProps) => {
         setFilterProjects,
         thisPage,
         setThisPage,
-      }}
-    >
+      }}>
       {children}
     </GiveContextUserPage.Provider>
   );

@@ -1,8 +1,7 @@
-import { AxiosError, AxiosResponse } from "axios";
+import { AxiosError } from "axios";
 import { createContext, ReactNode, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Toastify from "../components/Toastify";
-import { toast } from "react-toastify";
 import Api from "../services/api";
 
 interface IUserProviderProps {
@@ -71,7 +70,7 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
 
   async function registerUser(dataRegister: IRegisterForm): Promise<void> {
     try {
-      const response = await Api.post("/register", dataRegister);
+      await Api.post("/register", dataRegister);
       navigate("/login");
       Toastify.sucess("Conta registrada! 😎");
     } catch (error) {
@@ -80,29 +79,18 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
     }
   }
 
-  console.log(user);
-
-  async function loginUser(data: ILoginUser) {
+  async function loginUser(data: ILoginUser): Promise<void> {
     try {
-      await Api.post<IResponse>(
-        //REMOVIDO O HTTPS
-        "/login",
-        data
-      ).then((res) => {
-        const { user: userResponse, accessToken } = res.data;
-        setUser(userResponse);
-        res.status === 200
-          ? toast.success("Login realizado com sucesso!")
-          : toast.error("Ops! Algo deu errado.");
-        window.localStorage.setItem("@2Give:token", accessToken);
-        window.localStorage.setItem("@2Give:userID", userResponse.id);
-        console.log(res);
-        setTimeout(() => {
-          navigate(`/userPage`, { replace: true });
-        }, 500);
-      });
-    } catch (err) {
-      err ? toast.error("Ops! Algo deu errado.") : console.log();
+      const response = await Api.post<IResponse>("/login", data);
+      const { user: userResponse, accessToken } = response.data;
+      setUser(userResponse);
+      window.localStorage.setItem("@2Give:token", accessToken);
+      window.localStorage.setItem("@2Give:userID", userResponse.id);
+      navigate(`/userPage`, { replace: true });
+      Toastify.sucess("Login realizado com sucesso! 😎");
+    } catch (error) {
+      const requestError = error as AxiosError;
+      Toastify.erro(requestError.response?.data);
     }
   }
 
@@ -111,11 +99,8 @@ const GiveProviderAuth = ({ children }: IUserProviderProps) => {
       try {
         if (tokenUser) {
           Api.defaults.headers.authorization = `Bearer ${tokenUser}`;
-
           const { data } = await Api.get(`/users/${userID}`);
-          console.log(data);
           setUser(data);
-          console.log("oi");
         }
       } catch (error) {
         navigate("/");

@@ -35,7 +35,7 @@ const Register = () => {
         </header>
 
         <FlexContainer flexDirection="column" media="responsive">
-          <h1>Cadastrar</h1>
+          <h1>Cadastro</h1>
           <Input
             type="text"
             register={register}

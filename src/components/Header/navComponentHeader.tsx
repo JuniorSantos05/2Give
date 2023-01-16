@@ -4,7 +4,6 @@ import { IHeader } from ".";
 import { GiveContextAuthorization } from "../../contexts/GiveContextAuthorization";
 import { GiveContextUserPage } from "../../contexts/GiveContextUserPage";
 import { Button } from "../Button";
-
 import { NavStyle } from "./style";
 
 function NavComponentHeader({ headerType }: IHeader) {
@@ -28,7 +27,7 @@ function NavComponentHeader({ headerType }: IHeader) {
                 ? { color: "#F0386B" }
                 : { backgroundColor: "var(--grey-2)" }
             }>
-            Home
+            Início
           </h4>
         </Link>
         <Link to={"/about"}>
@@ -58,17 +57,17 @@ function NavComponentHeader({ headerType }: IHeader) {
             </button>
             <Link to={"/userPage"}>
               <button>
-                <h4>Dashboard</h4>
+                <h4>Usuário</h4>
               </button>
             </Link>
           </>
         ) : (
           <>
             <Link to={"/login"}>
-              <Button>Login</Button>
+              <Button>Emtrar</Button>
             </Link>
             <Link to={"/register"}>
-              <Button>Register</Button>
+              <Button>Criar Conta</Button>
             </Link>
           </>
         )}
@@ -85,7 +84,7 @@ function NavComponentHeader({ headerType }: IHeader) {
                 ? { color: "#F0386B" }
                 : { backgroundColor: "var(--grey-2)" }
             }>
-            Home
+            Início
           </h4>
         </Link>
         <Link to={"/userPage"}>
@@ -95,7 +94,7 @@ function NavComponentHeader({ headerType }: IHeader) {
                 ? { color: "#F0386B" }
                 : { backgroundColor: "var(--grey-2)" }
             }>
-            Dashboard
+            Usuário
           </h4>
         </Link>
         <Link to={"/events"}>

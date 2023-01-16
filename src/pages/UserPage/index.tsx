@@ -9,18 +9,14 @@ import Header from "../../components/Header";
 import { GiveContextAuthorization } from "../../contexts/GiveContextAuthorization";
 import { ProjectsUser } from "./proctsUser";
 
-
 export const UserPage = () => {
-  const {  closeModal, setCloseModal, showModalInfo, setThisPage } =
+  const { closeModal, setCloseModal, showModalInfo, setThisPage } =
     useContext(GiveContextUserPage);
   const { user } = useContext(GiveContextAuthorization);
 
-  console.log(user)
   useEffect(() => {
     setThisPage("Dashboard");
   }, []);
-
-  console.log(user)
 
   return (
     <div>
@@ -31,7 +27,6 @@ export const UserPage = () => {
       <main>
         <UserSection>
           <figure>
-            
             <img src={user?.imagem} alt="foto de perfil" />
           </figure>
           <div>
